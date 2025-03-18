@@ -1,0 +1,59 @@
+name: thuctapcoso
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+# The following line prevents the package from being accidentally published to
+environment:
+  sdk: ^3.6.1
+
+# Package dependencies
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #icons
+#  icons ax: ^1.0.0
+  cupertino_icons: ^1.0.8
+
+  #state Management
+  get: ^4.6.5
+
+
+# Dev dependencies
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  #Local assets
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+
+  # Local fonts
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
