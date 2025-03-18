@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thuctapcoso/utlis/theme/theme.dart'; // Đảm bảo đúng đường dẫn
+import 'package:thuctapcoso/utlis/theme/theme.dart';
 
 void main() {
   runApp(const App());
@@ -15,11 +15,6 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('App'),
-        ),
-      ),
     );
   }
 }
