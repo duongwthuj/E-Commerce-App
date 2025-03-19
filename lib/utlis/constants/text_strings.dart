@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class TTexts{
-  // OnBoarding Texts
-  static const String onBoardingTitle1 = 'Choose your product';
-  static const String onBoardingTitle2 = 'Select your payment method';
-  static const String onBoardingTitle3 = 'Deliver to your door';
+ // OnBoarding Texts
+  static const String onBoardingTitle1 = 'Convenient Shopping Experience';
+  static const String onBoardingTitle2 = 'Quick & Secure Payment';
+  static const String onBoardingTitle3 = 'Fast & Reliable Delivery';
 
-  static const String onBoardingSubtitle1 = 'Find your favorite product';
-  static const String onBoardingSubtitle2 = 'Pay with secure payment method';
-  static const String onBoardingSubtitle3 = 'Super fast delivery';
+  static const String onBoardingSubtitle1 = 'Easily browse and choose your favorite products';
+  static const String onBoardingSubtitle2 = 'Multiple payment options with top security';
+  static const String onBoardingSubtitle3 = 'Get your order delivered to your doorstep in no time';
+
 
   // -- Home
   static const String homeTitle = 'Home';

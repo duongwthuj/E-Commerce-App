@@ -12,7 +12,7 @@ class TImages{
   static const String facebook = 'assets/logos/facebookLogo.png';
 
   // Onboarding Images
-  static const String onboarding1 = 'assets/images/on_boarding_images/test.gif';
-  static const String onboarding2 = 'assets/images/on_boarding_images/test.gif';
-  static const String onboarding3 = 'assets/images/on_boarding_images/test.gif';
+  static const String onboarding1 = 'assets/images/on_boarding_images/trailerGif1.gif';
+  static const String onboarding2 = 'assets/images/on_boarding_images/trailerGif2.gif';
+  static const String onboarding3 = 'assets/images/on_boarding_images/trailerGif3.gif';
 }
