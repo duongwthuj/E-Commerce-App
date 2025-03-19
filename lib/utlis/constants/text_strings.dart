@@ -14,4 +14,15 @@ class TTexts{
   // -- Home
   static const String homeTitle = 'Home';
   static const String homeSubtitle = 'Find your favorite product';
+
+  // -- Login
+  static const String loginTitle = 'Login';
+  static const String loginSubtitle = 'Enter your credentials to continue';
+  static const String email = 'Email';
+  static const String password = 'Password';
+  static const String rememberMe = 'Remember me';
+  static const String forgotPassword = 'Forgot password?';
+  static const String signIn = 'Sign In';
+  static const String createAccount = 'Create Account';
+  static const String orSignInWith = 'Or sign in with';
 }
