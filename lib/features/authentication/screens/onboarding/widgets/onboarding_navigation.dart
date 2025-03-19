@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:thuctapcoso/features/authentication/controllers_onboarding/onboarding_controller.dart';
-import '../../../../utlis/constants/colors.dart';
-import '../../../../utlis/constants/sizes.dart';
-import '../../../../utlis/device/device_utility.dart';
-import '../../../../utlis/helpers/helpFunction.dart';
+import '../../../../../utlis/constants/colors.dart';
+import '../../../../../utlis/constants/sizes.dart';
+import '../../../../../utlis/device/device_utility.dart';
+import '../../../../../utlis/helpers/helpFunction.dart';
 
 class OnBoardingNavigation extends StatelessWidget {
   const OnBoardingNavigation({

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../utlis/constants/sizes.dart';
-import '../../../../utlis/helpers/helpFunction.dart';
+
+import '../../../../../utlis/constants/sizes.dart';
+import '../../../../../utlis/helpers/helpFunction.dart';
+
 
 
 class OnBoardingPage extends StatelessWidget {
