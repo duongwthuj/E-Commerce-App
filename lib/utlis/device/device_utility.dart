@@ -30,6 +30,9 @@ class TDeviceUtils{
     return MediaQuery.of(context).size.height;
   }
 
+  static double getAppBarHeight(){
+    return kToolbarHeight;
+  }
 
   // check IOS
   static bool isIOS(){
@@ -49,6 +52,10 @@ class TDeviceUtils{
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  static getBottomNavigationBarHeight() {
+    return kBottomNavigationBarHeight;
   }
 
 
