@@ -16,5 +16,8 @@ class TImages{
   static const String onboarding2 = 'assets/images/on_boarding_images/trailerGif2.gif';
   static const String onboarding3 = 'assets/images/on_boarding_images/trailerGif3.gif';
 
+  // Animation
+  static const String test = 'assets/images/animations/test.gif';
+
 
 }

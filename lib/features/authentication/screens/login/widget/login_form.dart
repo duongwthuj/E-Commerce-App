@@ -68,6 +68,7 @@ class LoginForm extends StatelessWidget {
                 child: const Text(TTexts.createAccount),
               ),
             ),
+            const SizedBox(height: TSizes.spaceBtwItems),
           ],
         ),
       ),

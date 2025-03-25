@@ -16,26 +16,18 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            TSizes.defaultSpace, // Trái
-            0,                  // Trên
-            TSizes.defaultSpace, // Phải
-            TSizes.defaultSpace, // Dưới
-          ),
+          padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Logo
               Image(
-                height: 80,
+                height: 125,
                 image: AssetImage(dark ? TImages.darkAppLogo : TImages.lightAppLogo),
               ),
-              const SizedBox(height: TSizes.sm),
+              const SizedBox(height: TSizes.spaceBtwItems),
               // Title
               Text(
                 TTexts.signupTitle,

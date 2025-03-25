@@ -38,4 +38,10 @@ class TTexts{
   static const String and = ' & ';
   static const String termsOfService = 'Terms of Service';
   static const String orSignUpWith = "Or sign up with";
+  static const String confirmEmail = "Confirm your email";
+  static const String confirmEmailSub = 'Conratulations! You have successfully signed up. Please check your email to verify your account.';
+  static const String resendEmail = 'Resend Email';
+  static const String tcontinue = "Continue";
+  static const String yourAccountIsCreatedSub = 'Congratulations! Your account has been successfully created. Please login to continue.';
+  static const String yourAccountIsCreatedTitle = "Your account is created";
 }
