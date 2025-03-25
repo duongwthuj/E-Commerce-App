@@ -44,4 +44,13 @@ class TTexts{
   static const String tcontinue = "Continue";
   static const String yourAccountIsCreatedSub = 'Congratulations! Your account has been successfully created. Please login to continue.';
   static const String yourAccountIsCreatedTitle = "Your account is created";
+
+
+  // -- Forget Password
+  static const String forgetPassword =  "Forget Password";
+  static const String forgetPasswordSubtitle = "Enter your email to reset your password";
+  static const String send = "Send";
+  static const String forgetPasswordSuccess = "Password reset email has been sent to your email address. Please check your email to reset your password.";
+  static const String forgetPasswordSuccessSubtitle = "Password reset email has been sent to your email address. Please check your email to reset your password.";
+
 }

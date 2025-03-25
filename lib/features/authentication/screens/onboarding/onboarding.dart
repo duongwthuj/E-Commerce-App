@@ -5,11 +5,7 @@ import 'package:thuctapcoso/features/authentication/screens/onboarding/widgets/o
 import 'package:thuctapcoso/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:thuctapcoso/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
 import 'package:thuctapcoso/utlis/constants/text_strings.dart';
-import 'package:thuctapcoso/utlis/device/device_utility.dart';
-import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
-import '../../../../utlis/constants/colors.dart';
 import '../../../../utlis/constants/image_strings.dart';
-import '../../../../utlis/constants/sizes.dart';
 import 'package:thuctapcoso/features/authentication/controllers_onboarding/onboarding_controller.dart';
 
 class OnBoardingScreen extends StatelessWidget {

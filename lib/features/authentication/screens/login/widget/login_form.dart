@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/constants/text_strings.dart';
 
+import '../../password_configuration/forget_password.dart';
 import '../../signup/signup.dart';
 
 class LoginForm extends StatelessWidget {
@@ -44,7 +45,9 @@ class LoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => {
+                    Get.to(() => const ForgetPasswordScreen())
+                  },
                   child: Text(TTexts.forgotPassword),
                 ),
               ],
