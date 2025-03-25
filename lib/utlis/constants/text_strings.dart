@@ -18,11 +18,24 @@ class TTexts{
   // -- Login
   static const String loginTitle = 'Login';
   static const String loginSubtitle = 'Enter your credentials to continue';
-  static const String email = 'Email';
+  static const String email = 'E-mail';
   static const String password = 'Password';
   static const String rememberMe = 'Remember me';
   static const String forgotPassword = 'Forgot password?';
   static const String signIn = 'Sign In';
   static const String createAccount = 'Create Account';
   static const String orSignInWith = 'Or sign in with';
+
+
+  // -- Signup
+  static const String signupTitle = "Let's Create Your Account";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
+  static const String phoneNumber = 'Phone Number';
+  static const String userName = 'Username';
+  static const String iAgreeTo = 'I agree to ';
+  static const String privacyPolicy = 'Privacy Policy';
+  static const String and = ' & ';
+  static const String termsOfService = 'Terms of Service';
+  static const String orSignUpWith = "Or sign up with";
 }
