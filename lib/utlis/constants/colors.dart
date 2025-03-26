@@ -56,5 +56,7 @@ class TColors{
   static const Color lightGrey = Color(0xFFEFEFEF);
   static const Color white = Color(0xFFFFFFFF);
 
+  static const Color primary = Color(0xFF4B68ff);
+
 
 }
