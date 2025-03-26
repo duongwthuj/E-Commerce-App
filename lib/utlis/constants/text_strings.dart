@@ -52,5 +52,9 @@ class TTexts{
   static const String send = "Send";
   static const String forgetPasswordSuccess = "Password reset email has been sent to your email address. Please check your email to reset your password.";
   static const String forgetPasswordSuccessSubtitle = "Password reset email has been sent to your email address. Please check your email to reset your password.";
+  static const String changePasswordTitle = "Change Password";
+  static const String changePasswordSubtitle = "Enter your new password to continue";
+  static const String newPassword = "New Password";
+  static const String done = "Done";
 
 }
