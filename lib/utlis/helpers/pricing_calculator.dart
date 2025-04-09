@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TPricingCalculator {
   static double calculatorTotalPrice(double productPrice, int quantity) {
     // double shippingCost = getShippingCost(location);

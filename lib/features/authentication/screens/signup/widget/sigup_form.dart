@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/features/authentication/screens/signup/widget/terms_and_confirm.dart';
-import '../../../../../utlis/constants/colors.dart';
 import '../../../../../utlis/constants/sizes.dart';
 import '../../../../../utlis/constants/text_strings.dart';
 import '../../../../../utlis/helpers/helpFunction.dart';

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/features/authentication/screens/password_configuration/reset_pasword.dart';
 import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
-import '../../../../common/widgets/success_screen/success_screen.dart';
 import '../../../../utlis/constants/sizes.dart';
 import '../../../../utlis/constants/text_strings.dart';
 import '../login/login.dart';

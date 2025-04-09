@@ -3,13 +3,9 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/styles/spacing_styles.dart';
 import 'package:thuctapcoso/features/authentication/screens/login/widget/login_form.dart';
 import 'package:thuctapcoso/features/authentication/screens/login/widget/login_header.dart';
-import 'package:thuctapcoso/utlis/constants/colors.dart';
-import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/constants/text_strings.dart';
 import '../../../../common/widgets/login_sign_up/form_divider.dart';
 import '../../../../common/widgets/login_sign_up/social_buttons.dart';
-import '../../../../utlis/constants/image_strings.dart';
-import '../../../../utlis/helpers/helpFunction.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

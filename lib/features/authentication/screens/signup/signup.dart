@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/login_sign_up/form_divider.dart';
 import 'package:thuctapcoso/common/widgets/login_sign_up/social_buttons.dart';
 import 'package:thuctapcoso/features/authentication/screens/signup/widget/sigup_form.dart';
-import 'package:thuctapcoso/utlis/constants/colors.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../../utlis/constants/image_strings.dart';

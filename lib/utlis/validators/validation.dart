@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TValidator{
   static String? ValidateEmail(String? email){
     if(email == null || email.isEmpty){

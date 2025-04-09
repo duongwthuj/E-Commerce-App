@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TTexts{
  // OnBoarding Texts
   static const String onBoardingTitle1 = 'Convenient Shopping Experience';
@@ -56,5 +54,8 @@ class TTexts{
   static const String changePasswordSubtitle = "Enter your new password to continue";
   static const String newPassword = "New Password";
   static const String done = "Done";
+
+  static const String homeAppBarTitle = "Good day for shopping";
+  static const String homeAppBarSubTitle = "DuowngThuj";
 
 }

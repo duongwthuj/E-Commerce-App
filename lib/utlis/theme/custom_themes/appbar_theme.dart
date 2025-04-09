@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class TAppBarTheme{
   TAppBarTheme._();
 
