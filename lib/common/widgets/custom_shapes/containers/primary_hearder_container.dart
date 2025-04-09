@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'curved_edges.dart';
+import '../curved_edges/curved_edges.dart';
 
 class PrimaryHeaderContainer extends StatelessWidget {
   const PrimaryHeaderContainer({

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../common/custom_shapes/containers/circular_container.dart';
-import '../../../common/custom_shapes/containers/curved_edges/curved_edges.dart';
-import '../../../common/custom_shapes/containers/curved_edges/primary_hearder_container.dart';
-import '../../../utlis/constants/colors.dart';
+import 'package:thuctapcoso/utlis/constants/colors.dart';
+
+import '../../../common/widgets/custom_shapes/containers/circular_container.dart';
+import '../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,42 +11,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            PrimaryHeaderContainer(
-              child: Container(
-                  color: TColors.primary,
-                  padding: const EdgeInsets.all(0),
-                  child: SizedBox(
-                    height: 340,
-                    child: Stack(
-                        children: [
-                          Positioned(
-                            top : -150,
-                            right: -250,
-                            child: CircularContainer(
-                              backgroundColor: TColors.textWhite.withOpacity(0.1),
-                            ),
-                          ),
-                          Positioned(
-                            top: 200,
-                            right: 250,
-                            child: CircularContainer(
-                              backgroundColor: TColors.textWhite.withOpacity(0.2),
-                            ),
-                          ),
-
-                        ]
-
-                    ),
-                  )
-              ),
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          PrimaryHeaderContainer(
+            child: Column(
+              children: [],
             )
-          ],
-        )
-      )
-    );
+
+          ),
+
+        ],
+      ),
+    ));
   }
 }
 

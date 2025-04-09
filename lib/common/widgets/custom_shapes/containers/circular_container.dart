@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import '../../../utlis/constants/colors.dart';
+
+import '../../../../../utlis/constants/colors.dart';
+
 
 class CircularContainer extends StatelessWidget {
   const CircularContainer({
@@ -29,6 +31,7 @@ class CircularContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         color: backgroundColor,
       ),
+      child: child,
     );
   }
 }
