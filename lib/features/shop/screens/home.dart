@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:thuctapcoso/features/shop/screens/widgets/home_appbar.dart';
+import 'package:thuctapcoso/utlis/constants/sizes.dart';
+import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
+import '../../../common/widgets/custom_shapes/containers/search_container.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +17,17 @@ class HomeScreen extends StatelessWidget {
             PrimaryHeaderContainer(
               child: Column(
                 children: [
+
+                  // appBar
                   THomeAppBar(),
+
+
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  // search bar
+                  TSearchContainer(text: 'Search for products')
+                  // Categories
                 ],
               ),
             ),
@@ -24,6 +37,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
