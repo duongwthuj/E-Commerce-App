@@ -18,4 +18,14 @@ class TImages{
   static const String test = 'assets/images/animations/test.gif';
 
 
+
+  // category icon
+  static const String sportIcon = 'assets/logos/googleLogo.png';
+  static const String clothIcon = 'assets/logos/googleLogo.png';
+  static const String shoeIcon = 'assets/logos/googleLogo.png';
+  static const String cosmeticsIcon = 'assets/logos/googleLogo.png';
+  static const String animalIcon = 'assets/logos/googleLogo.png';
+
+
+
 }

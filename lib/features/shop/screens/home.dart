@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:thuctapcoso/features/shop/screens/widgets/home_appbar.dart';
+import 'package:thuctapcoso/features/shop/screens/widgets/home_categories.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import '../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
 import '../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../common/widgets/texts/sectionsHeading.dart';
+import '../../../utlis/constants/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,11 +21,11 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   // appBar
                   THomeAppBar(),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.defaultSpace),
 
                   // search bar
                   TSearchContainer(text: 'Search for products'),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.defaultSpace),
 
                   // Categories
                   Padding(
@@ -31,12 +33,11 @@ class HomeScreen extends StatelessWidget {
                     child: Column (
                       children:[
                         // Heading
-                        TSectionsHeading(title: 'Popular Categories', showActionButton: false),
+                        TSectionsHeading(title: 'Popular Categories', showActionButton: false, textColor: TColors.white),
                         const SizedBox(height: TSizes.spaceBtwItems),
 
                         // Categories List
-
-
+                        THomeCategories()
                       ]
                     ),
                   ),
@@ -49,6 +50,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
 
 
 
