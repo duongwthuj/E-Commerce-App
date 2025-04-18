@@ -27,5 +27,6 @@ class TImages{
   static const String animalIcon = 'assets/logos/googleLogo.png';
 
 
-
+  // Banner
+  static const String banner1 = 'assets/logos/googleLogo.png';
 }
