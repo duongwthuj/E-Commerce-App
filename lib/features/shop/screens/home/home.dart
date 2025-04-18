@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
-import 'package:thuctapcoso/features/shop/screens/widgets/home_appbar.dart';
-import 'package:thuctapcoso/features/shop/screens/widgets/home_categories.dart';
 import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
-import '../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
-import '../../../common/widgets/custom_shapes/containers/search_container.dart';
-import '../../../common/widgets/images/banner_slider.dart';
-import '../../../common/widgets/images/t_round_image.dart';
-import '../../../common/widgets/products/product_cards/product_card_vertical.dart';
-import '../../../common/widgets/texts/sectionsHeading.dart';
-import '../../../utlis/constants/colors.dart';
+import '../../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
+import '../../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../../common/widgets/images/banner_slider.dart';
+import '../../../../../common/widgets/images/t_round_image.dart';
+import '../../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../../common/widgets/texts/sectionsHeading.dart';
+import '../../../../../utlis/constants/colors.dart';
+import 'home_appbar.dart';
+import 'home_categories.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

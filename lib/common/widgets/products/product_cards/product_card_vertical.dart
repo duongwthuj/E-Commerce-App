@@ -9,6 +9,7 @@ import '../../../../utlis/constants/sizes.dart';
 import '../../icons/t_circular_icon.dart';
 import '../../images/t_round_image.dart';
 import '../../texts/product_text.dart';
+import '../../texts/t_brand_tittle_text_with_verified_icon.dart';
 
 class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key});
@@ -81,19 +82,7 @@ class TProductCardVertical extends StatelessWidget {
                     smallSize: true,
                   ),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        "test",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: TSizes.xs),
-                      Icon(Icons.verified,
-                          size: TSizes.iconSm, color: TColors.primaryColor),
-                    ],
-                  ),
+                  TBrandTitleWithVerifiedIcon(title: 'nike'),
                 ],
               ),
             ),
@@ -133,3 +122,5 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
+
+
