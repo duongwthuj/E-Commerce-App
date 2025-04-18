@@ -29,4 +29,6 @@ class TImages{
 
   // Banner
   static const String banner1 = 'assets/logos/googleLogo.png';
+
+
 }
