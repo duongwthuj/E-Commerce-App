@@ -30,5 +30,7 @@ class TImages{
   // Banner
   static const String banner1 = 'assets/logos/googleLogo.png';
 
+  // profile
+  static const String user = 'assets/logos/googleLogo.png';
 
 }

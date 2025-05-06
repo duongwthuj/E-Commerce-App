@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/utlis/constants/colors.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 
+import 'features/personalization/screens/settings/settings.dart';
 import 'features/shop/screens/home/home.dart';
 import 'features/shop/screens/store/store.dart';
+import 'features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -50,7 +52,7 @@ class NavigationController extends GetxController {
   final screens = [
     HomeScreen(),
     Store(),
-    Container(color: Colors.blue),
-    Container(color: Colors.yellow),
+    FavouritesScreen(),
+    SettingsScreen(),
   ];
 }

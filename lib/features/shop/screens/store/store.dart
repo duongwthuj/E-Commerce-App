@@ -17,8 +17,17 @@ import '../../../../utlis/constants/sizes.dart';
 class Store extends StatelessWidget {
   const Store({super.key});
 
+  // get tabs => null;
+
   @override
   Widget build(BuildContext context) {
+    final tabs = [
+      const TCategoryTab(),
+      const TCategoryTab(),
+      const TCategoryTab(),
+      const TCategoryTab(),
+      const TCategoryTab(),
+    ];
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -32,7 +41,7 @@ class Store extends StatelessWidget {
             )
           ],
         ),
-        body: NestedScrollView(
+        body:  NestedScrollView  (
             headerSliverBuilder: (_, innerBoxIsScrolled) {
               return [
                 SliverAppBar(
@@ -92,6 +101,7 @@ class Store extends StatelessWidget {
               ];
             },
             body: TabBarView(children: [
+
               TCategoryTab(),
               TCategoryTab(),
               TCategoryTab(),

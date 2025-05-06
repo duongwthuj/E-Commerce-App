@@ -69,10 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: 'Popular Categories',
                           showActionButton: false,
                           textColor: TColors.white),
-                      // SizedBox(height: TSizes.spaceBtwItems),
+                      SizedBox(height: TSizes.defaultSpace),
 
                       // Categories List
-                      THomeCategories()
+                      THomeCategories(),
+                      SizedBox(height: TSizes.defaultSpace),
                     ]),
                   ),
                 ],
