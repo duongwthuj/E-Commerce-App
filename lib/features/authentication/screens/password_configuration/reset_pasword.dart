@@ -28,13 +28,13 @@ class ResetPasswordScreen extends StatelessWidget {
           padding: TSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column (
             children: [Image(
-              image: const AssetImage(TImages.test),
+              image: const AssetImage(TImages.deliveredEmailIllustration),
               width: THelperFunction.screenWidth() * 0.6,
             ),
 
               // Title & Subtitle
               Text(
-                TTexts.changePasswordTitle,
+                TTexts.changeYourPasswordTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
@@ -42,7 +42,7 @@ class ResetPasswordScreen extends StatelessWidget {
 
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                TTexts.changePasswordSubtitle,
+                TTexts.changeYourPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

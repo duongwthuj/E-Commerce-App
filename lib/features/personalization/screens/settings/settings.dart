@@ -7,6 +7,7 @@ import '../../../../common/widgets/custom_shapes/containers/primary_hearder_cont
 import '../../../../common/widgets/list_tiles/user_profile_title.dart';
 import '../../../../utlis/constants/colors.dart';
 import '../../../../utlis/constants/sizes.dart';
+import '../../../../utlis/constants/text_strings.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -22,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
             child: Column(children: [
           // appBar
           TAppBar(
-              title: Text('Account',
+              title: Text(TTexts.account,
                   style: Theme.of(context)
                       .textTheme
                       .headlineMedium!
@@ -38,76 +39,76 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 TSectionsHeading(
-                  title: "Account Settings",
+                  title: TTexts.accountSettings,
                   showActionButton: false,
                 ),
                 SizedBox(height: TSizes.defaultSpace),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "My Address",
-                    subtitle: "Set shopping delivery address",
+                    title: TTexts.myAddress,
+                    subtitle: TTexts.setShoppingDeliveryAddress,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "My cart",
-                    subtitle: "Add, remove products and move to checkout",
+                    title: TTexts.myCart,
+                    subtitle: TTexts.addRemoveProductsAndMoveToCheckout,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "My Order",
-                    subtitle: "In progress and Completed Orders",
+                    title: TTexts.myOrder,
+                    subtitle: TTexts.inProgressAndCompletedOrders,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Bank Account",
-                    subtitle: "Withdraw balance to registered bank account",
+                    title: TTexts.bankAccount,
+                    subtitle: TTexts.withdrawBalanceToRegisteredBankAccount,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "My Coupons",
-                    subtitle: "List of all the discounted coupons",
+                    title: TTexts.myCoupons,
+                    subtitle: TTexts.listOfAllDiscountedCoupons,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Notifications",
-                    subtitle: "Set any kind of notification message",
+                    title: TTexts.notifications,
+                    subtitle: TTexts.setAnyKindOfNotificationMessage,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Account Privacy",
-                    subtitle: "Manage date usage and connected accounts",
+                    title: TTexts.accountPrivacy,
+                    subtitle: TTexts.manageDataUsageAndConnectedAccounts,
                     onTap: () {}),
                 SizedBox(height: TSizes.spaceBtwSections),
                 TSectionsHeading(
-                  title: "App Settings",
+                  title: TTexts.appSettings,
                   showActionButton: false,
                 ),
                 SizedBox(height: TSizes.defaultSpace),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Load data",
-                    subtitle: "Upload Data to your clound FireBases",
+                    title: TTexts.loadData,
+                    subtitle: TTexts.uploadDataToYourCloudFirebase,
                     onTap: () {}),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Account Privacy",
-                    subtitle: "Manage date usage and connected accounts",
+                    title: TTexts.accountPrivacy,
+                    subtitle: TTexts.manageDataUsageAndConnectedAccounts,
                     trailing: Switch(value: true, onChanged: (value) {})),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "Safe mode",
-                    subtitle: "Search and view products in safe mode",
+                    title: TTexts.safeMode,
+                    subtitle: TTexts.searchAndViewProductsInSafeMode,
                     trailing: Switch(value: true, onChanged: (value) {})),
                 TSettingsMenuTile(
                     icon: Icons.location_on,
-                    title: "HD Image Quality",
-                    subtitle: "Set image quality to HD",
+                    title: TTexts.hdImageQuality,
+                    subtitle: TTexts.setImageQualityToHD,
                     trailing: Switch(value: true, onChanged: (value) {})),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                      onPressed: () {}, child: const Text("LogOut")),
+                      onPressed: () {}, child: Text(TTexts.logout)),
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
               ],

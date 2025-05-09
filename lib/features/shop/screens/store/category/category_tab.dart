@@ -25,7 +25,7 @@ class TCategoryTab extends StatelessWidget {
                 padding: const EdgeInsets.all(TSizes.defaultSpace),
                 child: Column(
                   children: [
-                    const TBrandShowCase(images: [TImages.test, TImages.test, TImages.test]),
+                    const TBrandShowCase(images: [TImages.nikeLogo, TImages.adidasLogo, TImages.pumaLogo]),
                     const SizedBox(height: TSizes.spaceBtwSections),
                     TSectionsHeading(
                       title: 'You might like',

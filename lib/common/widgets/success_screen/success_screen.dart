@@ -43,7 +43,7 @@ class SuccessScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: onPressed,
-                    child: Text(TTexts.tcontinue),
+                    child: Text(TTexts.skip),
                   ),
                 ),
               ],

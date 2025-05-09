@@ -48,7 +48,7 @@ class LoginForm extends StatelessWidget {
                   onPressed: () => {
                     Get.to(() => const ForgetPasswordScreen())
                   },
-                  child: Text(TTexts.forgotPassword),
+                  child: Text(TTexts.forgetPassword),
                 ),
               ],
             ),

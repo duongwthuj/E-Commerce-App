@@ -14,7 +14,7 @@ class TUserProfileTitle extends StatelessWidget {
     return ListTile(
         leading: const TCircularImage(image: TImages.user, width: 50, height: 50, padding: 0,),
         title: Text('Fix Bug With DThuj', style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white )),
-        subtitle: Text('abcbcbcsbndfh', style: Theme.of(context).textTheme.bodyLarge!.apply(color: TColors.white )),
+        subtitle: Text('Sos Sos Sos', style: Theme.of(context).textTheme.bodyLarge!.apply(color: TColors.white )),
         trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.edit, color: TColors.white))
     );
   }

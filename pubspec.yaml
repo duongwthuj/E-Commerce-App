@@ -44,13 +44,14 @@ flutter:
 
   # Local assets
   assets:
-    - assets/images/user/
+    - assets/images/content/
     - assets/logos/
     - assets/icons/brands/
-    - assets/images/banner/
+    - assets/images/banners/
     - assets/images/on_boarding_images/
     - assets/images/animations/
     - assets/icons/categories/
+    - assets/images/products/
 
   # Local fonts
   fonts:

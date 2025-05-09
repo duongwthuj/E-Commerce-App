@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../utlis/constants/text_strings.dart';
 
 class TSectionsHeading extends StatelessWidget {
   const TSectionsHeading({
@@ -7,7 +8,7 @@ class TSectionsHeading extends StatelessWidget {
     this.textColor,
     this.showActionButton = true,
     required this.title,
-    this.buttonTitle = "View All",
+    this.buttonTitle = TTexts.viewAll,
     this.onPressed,
   });
 
@@ -18,10 +19,18 @@ class TSectionsHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row (
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor), maxLines: 1, overflow: TextOverflow.ellipsis,),
+        Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .headlineSmall!
+              .apply(color: textColor),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
         if (showActionButton == true)
           TextButton(onPressed: onPressed, child: Text(buttonTitle))
       ],

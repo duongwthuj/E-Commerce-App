@@ -31,7 +31,7 @@ class VerifyEmailScreen extends StatelessWidget {
             children: [
               // Image
               Image(
-                image: const AssetImage(TImages.test),
+                image: const AssetImage(TImages.deliveredEmailIllustration ),
                 width: THelperFunction.screenWidth() * 0.6,
               ),
 
@@ -51,7 +51,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                TTexts.confirmEmailSub,
+                TTexts.confirmEmailSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -62,12 +62,12 @@ class VerifyEmailScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => SuccessScreen(
-                    image: TImages.test,
-                    title: TTexts.yourAccountIsCreatedSub,
-                    subtitle: TTexts.yourAccountIsCreatedTitle,
+                    image: TImages.verifyIllustration,
+                    title: TTexts. confirmEmail,
+                    subtitle: TTexts.yourAccountCreatedTitle,
                     onPressed: () => Get.to(() => const LoginScreen()),
                   )),
-                  child: Text(TTexts.tcontinue),
+                  child: Text(TTexts.skip),
                 ),
               ),
               const SizedBox(height: TSizes.spaceBtwItems),

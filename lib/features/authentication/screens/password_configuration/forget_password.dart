@@ -40,7 +40,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                TTexts.forgetPasswordSubtitle,
+                TTexts.forgetPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -60,7 +60,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Get.off(() => const ResetPasswordScreen()),
-                  child: Text(TTexts.send),
+                  child: Text(TTexts.submit),
                 ),
               )
             ]

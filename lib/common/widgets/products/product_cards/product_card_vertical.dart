@@ -10,6 +10,7 @@ import '../../icons/t_circular_icon.dart';
 import '../../images/t_round_image.dart';
 import '../../texts/product_text.dart';
 import '../../texts/t_brand_tittle_text_with_verified_icon.dart';
+import '../../../../utlis/constants/text_strings.dart';
 
 class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key});
@@ -39,7 +40,8 @@ class TProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   // Product image
-                  TRoundedImage(imageUrl: TImages.test, applyImageRadius: true),
+                  TRoundedImage(
+                      imageUrl: TImages.productImage2, applyImageRadius: true),
 
                   // Sale tag
                   Positioned(
@@ -66,7 +68,11 @@ class TProductCardVertical extends StatelessWidget {
                       top: 0,
                       right: 0,
                       child: TCircularIcon(
-                          icon: Icons.favorite, color: Colors.red, size: TSizes.iconSm, backgroundColor: Colors.transparent,)),
+                        icon: Icons.favorite,
+                        color: Colors.red,
+                        size: TSizes.iconSm,
+                        backgroundColor: Colors.transparent,
+                      )),
                 ],
               ),
             ),
@@ -78,11 +84,11 @@ class TProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTittleText(
-                    title: "Product Name",
+                    title: TTexts.popularProducts,
                     smallSize: true,
                   ),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon(title: 'nike'),
+                  TBrandTitleWithVerifiedIcon(title: TTexts.nike),
                 ],
               ),
             ),
@@ -122,5 +128,3 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
-
-

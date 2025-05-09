@@ -68,7 +68,7 @@ class SignUpForm extends StatelessWidget {
             expands: false,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.phone),
-              labelText: TTexts.phoneNumber,
+              labelText: TTexts.phoneNo,
             ),
           ),
           const SizedBox(height: TSizes.spaceBtwInputField),

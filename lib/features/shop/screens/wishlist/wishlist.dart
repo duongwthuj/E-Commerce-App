@@ -9,6 +9,7 @@ import '../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../navigation_menu.dart';
 import '../../../../utlis/constants/sizes.dart';
+import '../../../../utlis/constants/text_strings.dart';
 
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({super.key});
@@ -17,7 +18,7 @@ class FavouritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: TAppBar(
-          title: Text("Wishlist",
+          title: Text(TTexts.popularProducts,
               style: Theme.of(context).textTheme.headlineMedium),
           actions: [
             TCircularIcon(

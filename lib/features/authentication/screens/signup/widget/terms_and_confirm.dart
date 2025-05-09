@@ -41,7 +41,7 @@ class TermsAndConfrim extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               TextSpan(
-                  text: TTexts.termsOfService,
+                  text: TTexts.termsOfUse,
                   style: Theme.of(context).textTheme.bodySmall?.apply(
                     color: dark ? TColors.white : TColors.dark,
                     decoration: TextDecoration.underline,
