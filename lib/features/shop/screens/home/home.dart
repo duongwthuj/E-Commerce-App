@@ -86,9 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     TCarouselSlider(
                       items: [
-                        TRoundedImage(imageUrl: TImages.nikeLogo),
-                        TRoundedImage(imageUrl: TImages.adidasLogo),
-                        TRoundedImage(imageUrl: TImages.pumaLogo),
+                        TRoundedImage(imageUrl: TImages.promoBanner1),
+                        TRoundedImage(imageUrl: TImages.promoBanner2),
+                        TRoundedImage(imageUrl: TImages.promoBanner3),
                       ],
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),

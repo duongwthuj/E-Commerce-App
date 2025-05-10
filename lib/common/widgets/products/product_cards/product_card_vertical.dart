@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/styles/shadows..dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
+import '../../../../features/shop/screens/product_details/Product.dart';
 import '../../../../utlis/constants/colors.dart';
 import '../../../../utlis/constants/image_strings.dart';
 import '../../../../utlis/constants/sizes.dart';
@@ -20,7 +23,7 @@ class TProductCardVertical extends StatelessWidget {
     final dark = THelperFunction.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetail()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -69,8 +72,9 @@ class TProductCardVertical extends StatelessWidget {
                       right: 0,
                       child: TCircularIcon(
                         icon: Icons.favorite,
+                        width: TSizes.iconSm,
                         color: Colors.red,
-                        size: TSizes.iconSm,
+                        size: TSizes.iconSm ,
                         backgroundColor: Colors.transparent,
                       )),
                 ],
