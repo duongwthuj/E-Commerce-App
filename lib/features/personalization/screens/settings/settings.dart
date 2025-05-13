@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/list_tiles/settings_menu_title.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
+import 'package:thuctapcoso/features/personalization/screens/address/address.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
 import '../../../../common/widgets/list_tiles/user_profile_title.dart';
 import '../../../../utlis/constants/colors.dart';
@@ -44,37 +45,38 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: TSizes.defaultSpace),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.location_on_outlined,
                     title: TTexts.myAddress,
                     subtitle: TTexts.setShoppingDeliveryAddress,
-                    onTap: () {}),
+                    onTap: () => Get.to(() => const UserAddressScreen())),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.shopping_cart_outlined,
                     title: TTexts.myCart,
                     subtitle: TTexts.addRemoveProductsAndMoveToCheckout,
-                    onTap: () {}),
+                    onTap: () {},
+                    ),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.shopping_bag_outlined,
                     title: TTexts.myOrder,
                     subtitle: TTexts.inProgressAndCompletedOrders,
                     onTap: () {}),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.account_balance_outlined,
                     title: TTexts.bankAccount,
                     subtitle: TTexts.withdrawBalanceToRegisteredBankAccount,
                     onTap: () {}),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.discount_outlined,
                     title: TTexts.myCoupons,
                     subtitle: TTexts.listOfAllDiscountedCoupons,
                     onTap: () {}),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.notifications_outlined,
                     title: TTexts.notifications,
                     subtitle: TTexts.setAnyKindOfNotificationMessage,
                     onTap: () {}),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.lock_outline,
                     title: TTexts.accountPrivacy,
                     subtitle: TTexts.manageDataUsageAndConnectedAccounts,
                     onTap: () {}),
@@ -85,22 +87,22 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: TSizes.defaultSpace),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.cloud_upload_outlined,
                     title: TTexts.loadData,
                     subtitle: TTexts.uploadDataToYourCloudFirebase,
                     onTap: () {}),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.security_outlined,
                     title: TTexts.accountPrivacy,
                     subtitle: TTexts.manageDataUsageAndConnectedAccounts,
                     trailing: Switch(value: true, onChanged: (value) {})),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.shield_outlined,
                     title: TTexts.safeMode,
                     subtitle: TTexts.searchAndViewProductsInSafeMode,
                     trailing: Switch(value: true, onChanged: (value) {})),
                 TSettingsMenuTile(
-                    icon: Icons.location_on,
+                    icon: Icons.hd_outlined,
                     title: TTexts.hdImageQuality,
                     subtitle: TTexts.setImageQualityToHD,
                     trailing: Switch(value: true, onChanged: (value) {})),
