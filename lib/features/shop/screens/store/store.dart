@@ -37,7 +37,7 @@ class Store extends StatelessWidget {
           actions: [
             TCartCounterIcon(
               onPressed: () {},
-              IconColor: Colors.white,
+              iconColor: Colors.white,
             )
           ],
         ),

@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/features/authentication/screens/signup/widget/terms_and_confirm.dart';
 import '../../../../../utlis/constants/sizes.dart';
 import '../../../../../utlis/constants/text_strings.dart';
-import '../../../../../utlis/helpers/helpFunction.dart';
+// import '../../../../../utlis/helpers/helpFunction.dart';
 import '../verify_email.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -17,7 +15,7 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunction.isDarkMode(context);
+    // final dark = THelperFunction.isDarkMode(context);
     return Form(
       child: Column(
         children: [

@@ -1,13 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:thuctapcoso/features/shop/screens/cart/widget/cart.dart';
 import '../../../utlis/constants/colors.dart';
 
 class TCartCounterIcon extends StatelessWidget {
   const TCartCounterIcon({
-    super.key, this.IconColor, required this.onPressed,
-  });
+    super.key, this.iconColor, required this.onPressed,
+  }); 
 
-  final Color? IconColor;
+  final Color? iconColor;
   final VoidCallback onPressed;
 
   @override
@@ -15,7 +16,7 @@ class TCartCounterIcon extends StatelessWidget {
     bool dark = Theme.of(context).brightness == Brightness.dark;
     return Stack(
       children: [
-        IconButton(onPressed: onPressed, icon: Icon(Icons.shopping_cart, color: dark? TColors.white : TColors.darkerGrey,)),
+        IconButton(onPressed: () => Get.to(() => CartScreen()), icon: Icon(Icons.shopping_cart, color: dark? TColors.white : TColors.darkerGrey,)),
         Positioned(
           right: 0,
           child: Container (

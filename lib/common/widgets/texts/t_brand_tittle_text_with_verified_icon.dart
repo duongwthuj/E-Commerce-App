@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thuctapcoso/common/widgets/texts/t_brand_tittle_text.dart';
 
@@ -14,7 +13,7 @@ class TBrandTitleWithVerifiedIcon extends StatelessWidget {
     this.textColor,
     this.iconColor = TColors.primary,
     this.textAlign = TextAlign.center,
-    this.brandTextSizes = TextSizes.small,
+    this.brandTextSizes = TextSizes.small, bool showVerifiedIcon = true,
   });
 
   final String title;
