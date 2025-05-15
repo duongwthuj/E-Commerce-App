@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../utlis/constants/colors.dart';
 import '../../../utlis/constants/sizes.dart';
 import '../../../utlis/helpers/helpFunction.dart';
-import '../brands/brand_card.dart';
 import '../custom_shapes/containers/round_container.dart';
 
 class RoundedContainerHeaderDelegate extends SliverPersistentHeaderDelegate {

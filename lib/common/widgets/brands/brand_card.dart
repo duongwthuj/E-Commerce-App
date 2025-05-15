@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../utlis/constants/enums.dart';
 import '../../../utlis/constants/image_strings.dart';
@@ -18,7 +17,6 @@ class TBrandCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunction.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: TRoundedContainer(

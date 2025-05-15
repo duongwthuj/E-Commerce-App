@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
-import 'package:thuctapcoso/features/shop/screens/home/home.dart';
 import '../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../navigation_menu.dart';

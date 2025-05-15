@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/appbar/tabbar.dart';
 import 'package:thuctapcoso/common/widgets/brands/brand_card.dart';
-import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
 import 'package:thuctapcoso/common/widgets/product_cart/cart_menu_icon.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
 import 'package:thuctapcoso/features/shop/screens/store/category/category_tab.dart';
-import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
-import '../../../../common/widgets/brands/brand_show_case.dart';
-import '../../../../utlis/constants/colors.dart';
 import '../../../../utlis/constants/sizes.dart';
 
 class Store extends StatelessWidget {
@@ -21,13 +17,6 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = [
-      const TCategoryTab(),
-      const TCategoryTab(),
-      const TCategoryTab(),
-      const TCategoryTab(),
-      const TCategoryTab(),
-    ];
     return DefaultTabController(
       length: 5,
       child: Scaffold(

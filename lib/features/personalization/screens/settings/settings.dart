@@ -4,6 +4,7 @@ import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/list_tiles/settings_menu_title.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
 import 'package:thuctapcoso/features/personalization/screens/address/address.dart';
+import 'package:thuctapcoso/features/shop/screens/order/order.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
 import '../../../../common/widgets/list_tiles/user_profile_title.dart';
 import '../../../../utlis/constants/colors.dart';
@@ -59,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.shopping_bag_outlined,
                     title: TTexts.myOrder,
                     subtitle: TTexts.inProgressAndCompletedOrders,
-                    onTap: () {}),
+                    onTap: () => Get.to(() => const OrderScreen())),
                 TSettingsMenuTile(
                     icon: Icons.account_balance_outlined,
                     title: TTexts.bankAccount,
