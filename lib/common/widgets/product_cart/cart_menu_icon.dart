@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:thuctapcoso/features/shop/screens/cart/widget/cart.dart';
+import 'package:thuctapcoso/features/shop/screens/cart/cart.dart';
 import '../../../utlis/constants/colors.dart';
 
 class TCartCounterIcon extends StatelessWidget {

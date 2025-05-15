@@ -1,0 +1,267 @@
+[33mcommit b74fe89f4158ff4a545832278915f4a6183f83a2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Thu May 15 00:05:35 2025 +0700
+
+    Fix all waring
+
+[33mcommit 0e581172d633f844f4c94f43ef3d319acdbceeaf[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed May 14 23:47:58 2025 +0700
+
+     create Shopping CartScreen
+
+[33mcommit e7b67deb759e5649f6ae74cf2e457d7c27721a14[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed May 14 00:56:07 2025 +0700
+
+     Create Address Screen and AddAddrees Screen
+
+[33mcommit 619315bb3e8db37782c18c1dafea7c5668b82c51[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed May 14 00:25:13 2025 +0700
+
+    Create Screen Review
+
+[33mcommit bf104da7006bb3e066b5b449168daed34297001f[m
+Merge: f051ed3 4d57202
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Sat May 10 07:56:43 2025 +0700
+
+     Create product Scren and Account Screen
+
+[33mcommit f051ed3725200d13b4a49df695b5c6243a808126[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Sat May 10 07:54:22 2025 +0700
+
+     Create Screen of product
+
+[33mcommit 1018bd733928a835009ea2169c8d2e176061d5cb[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri May 9 15:47:57 2025 +0700
+
+     Setup ProfileScreen
+
+[33mcommit 018d5b61babbd06c0fd736bf73ed9dfbd88d4af0[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri May 9 15:02:31 2025 +0700
+
+     Add brand card and showcase components for imporved product display
+
+[33mcommit 4d572023867f20fa02202e6c5aee390fe8c1af57[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Tue May 6 15:49:49 2025 +0700
+
+    upload brands, categories, products image
+
+[33mcommit 5d04c5b126139b3a3f1feb50943e3c47e2c3fbae[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue May 6 14:52:09 2025 +0700
+
+     Create a wishlist and settings UI
+
+[33mcommit 59e231a2f4f65ece9071cff22990391bfa196886[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Apr 22 17:10:30 2025 +0700
+
+    Add brand card and showcase components
+    for improved product display
+
+[33mcommit 6b77043109b49bdab973bd7daeee220751c9f55b[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri Apr 18 16:53:42 2025 +0700
+
+    Refactor widget imports and enhance UI components in Home and Store screens
+
+[33mcommit 72612efa69204f931e3027dd9f9b2c3ceaff6abe[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri Apr 18 15:15:42 2025 +0700
+
+    Clear bug in light/dark mode screen and add to Spacer in Home
+
+[33mcommit 05dc44140da4e46d6d12c11d9eb5fc1597a97118[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri Apr 18 11:01:41 2025 +0700
+
+    setup product_card_horizontal and shadow in HomeView
+
+[33mcommit 77f3bc974b1580c82b3823643e85e96b11c2dcb1[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Fri Apr 18 08:54:08 2025 +0700
+
+     Create slideshow banner in HomeView
+
+[33mcommit e6ce2fd35bc6756476cbb1189c7d94c995e1e846[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Apr 15 00:13:23 2025 +0700
+
+     Create ListView Builder
+
+[33mcommit 28ff67f79d2c3323a1b86f743d6126a8bbb58be2[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Mon Apr 14 23:12:05 2025 +0700
+
+     Create SectionsHeading
+
+[33mcommit 1fb243303cff00ee3c7f32780d5de186fba3f9e9[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Mon Apr 14 22:55:27 2025 +0700
+
+     Create Search container for many screen
+
+[33mcommit 6ae6fb4533827a8bbe679f2ee88e9c56238f6036[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Apr 9 16:09:36 2025 +0700
+
+    Setup homeAppBar, cartMenuIcon, fixbug in header container
+
+[33mcommit 7cf2cd10e7d0d88e39aa9728cc64e6e823f7c9a3[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Apr 9 14:59:36 2025 +0700
+
+     Fix bug and Custom Shape
+
+[33mcommit 17c62b453ddbee7228f5271f6d5156b8ecd9638b[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 26 16:57:05 2025 +0700
+
+     Setup Custom_shapes -> container -> setup HomeScreen
+
+[33mcommit ba3b6a0ce3d75e738cdf053fd31f7b521e27dd49[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 26 15:28:10 2025 +0700
+
+    Setup NavigationBar use getx and obx to change screen
+
+[33mcommit 97499a3720db820ee195353df334f21211790b71[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 26 14:56:23 2025 +0700
+
+     Change ResetPassWord to screen distinct
+
+[33mcommit 3a3affe8f48f6cee86c80e3d1a88185a2ecf7be5[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 26 02:19:33 2025 +0700
+
+     Set up forgotPassword Screen - resetPassword Screeen
+
+[33mcommit 8c849be8d775036cb3a70aeba7c80327c66d0487[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 25 16:45:27 2025 +0700
+
+     Create Verify-Email-Screen and Create Succes-form-Screen for multiple success scenarios
+
+[33mcommit 7de84e22c8aaaeb70f5d6a6963b53a54a51148fa[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 25 15:40:44 2025 +0700
+
+    add temp logo to SignUp Screen
+
+[33mcommit 710b818667b145e913af1dfe5f2b1b56a851aebe[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 25 15:23:58 2025 +0700
+
+    Create Signup Screen UI
+
+[33mcommit a8c5ab0e5a47c6410ebc9bc2f1764f69d18553dc[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Thu Mar 20 01:41:02 2025 +0700
+
+    Set up Login Screen
+
+[33mcommit 996421525585daab43aec31cb7bc84ec834833ac[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 23:57:28 2025 +0700
+
+    Change link widget of onboarding
+
+[33mcommit 5c8fafbbb78f3e2724743cbe391734eb0954862e[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 16:16:33 2025 +0700
+
+    Change link images - Test onboarding done
+
+[33mcommit bbef257e79b9db6ce2f8908e5dffe57c9d7d8465[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 16:09:22 2025 +0700
+
+    upload trailer onboarding
+
+[33mcommit 6a24dbb881c52e0e9c8daa520c766d689c2094c0[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 16:04:11 2025 +0700
+
+    add Helpfunction, change device_utility. SetUp Onboarding Screen( dont have img)
+
+[33mcommit 0cbe4a006e83a7b5d805c704b3b8a9bdb938359e[m
+Merge: 21a8262 a410840
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 03:42:59 2025 +0700
+
+    Change gradle, Setup Splash
+
+[33mcommit 21a826250a7f34ffc4ff474076f2909a613d2d9f[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 03:41:01 2025 +0700
+
+    Change Grale, Build Spalsh
+
+[33mcommit a410840537c3578211c128f8ba0085de4daba7c4[m
+Merge: a4499b9 c5e8477
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 03:02:22 2025 +0700
+
+    update
+
+[33mcommit a4499b9a84ca2196ef5b5f55d015cffb293a2714[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 03:00:42 2025 +0700
+
+    update
+
+[33mcommit c5e8477607ecfe0ba8d2bb725ab4cae9539cacd1[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 02:47:26 2025 +0700
+
+    Setup Helper Function: device_utility, formater, cal, storage, validation
+
+[33mcommit 0d4d9822dfa0725d405c101c4dd5408d175c61c3[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Wed Mar 19 02:04:50 2025 +0700
+
+    SetUp Utlis: Colors, Enums, image, string, sizes
+
+[33mcommit a0734e3d3ff054e5040b775059e1b4ead9e7261e[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 02:02:31 2025 +0700
+
+    upload logo
+
+[33mcommit 93f984fee102cb3eac5bf98a288a9ead93bdc56a[m
+Author: Mai Hoang Tung <tung03401@gmail.com>
+Date:   Wed Mar 19 01:57:01 2025 +0700
+
+    upload logo
+
+[33mcommit 820d7dcbf980885df739f15b37f5e4ef867a5022[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 18 16:19:27 2025 +0700
+
+    Test light/dark mode switching done
+
+[33mcommit da7575eeb6abb884e65a545144f4ddbbb39c4dc6[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 18 16:13:32 2025 +0700
+
+    Setup Theme (Dark/Light)
+
+[33mcommit 9efa9fdb35df8c3a8df1f033d707add37910c681[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 18 14:39:48 2025 +0700
+
+    Setup Enviroment/ Folder for project
+
+[33mcommit 6bb026e8700bbabdc13e642c774a9bffa17da487[m
+Author: duongwthuj <thunguyenduong37@gmail.com>
+Date:   Tue Mar 18 14:38:37 2025 +0700
+
+    First Commit
