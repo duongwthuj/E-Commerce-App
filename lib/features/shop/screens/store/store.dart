@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/appbar/tabbar.dart';
 import 'package:thuctapcoso/common/widgets/brands/brand_card.dart';
@@ -6,6 +8,7 @@ import 'package:thuctapcoso/common/widgets/custom_shapes/containers/search_conta
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
 import 'package:thuctapcoso/common/widgets/product_cart/cart_menu_icon.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
+import 'package:thuctapcoso/features/shop/screens/brands/all_brands.dart';
 import 'package:thuctapcoso/features/shop/screens/store/category/category_tab.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../../utlis/constants/sizes.dart';
@@ -61,7 +64,7 @@ class Store extends StatelessWidget {
                           TSectionsHeading(
                             title: 'Featured Products',
                             showActionButton: true,
-                            onPressed: () {},
+                            onPressed: () => Get.to(() => const AllBrandsScreen()),
                           ),
                           const SizedBox(height: TSizes.spaceBtwItems / 2),
 

@@ -11,8 +11,8 @@ import 'package:thuctapcoso/features/shop/screens/product_details/widget/rating_
 import 'package:thuctapcoso/features/shop/screens/store/product_reviewers/product_reviewers.dart';
 import '../../../../utlis/constants/sizes.dart';
 
-class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+class ProductDetailScreen extends StatelessWidget {
+  const ProductDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

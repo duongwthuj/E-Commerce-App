@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
+import 'package:thuctapcoso/features/shop/screens/all_products/all_products.dart';
 import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import '../../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
@@ -49,31 +52,32 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const PrimaryHeaderContainer(
+            PrimaryHeaderContainer(
               child: Column(
                 children: [
                   // appBar
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.defaultSpace),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.defaultSpace),
 
                   // search bar
-                  TSearchContainer(text: 'Search for products'),
-                  SizedBox(height: TSizes.defaultSpace),
+                  const TSearchContainer(text: 'Search for products'),
+                  const SizedBox(height: TSizes.defaultSpace),
 
                   // Categories
                   Padding(
-                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(children: [
                       // Heading
                       TSectionsHeading(
                           title: 'Popular Categories',
+                          // onPressed: () => Get.to(() => const AllProducts()),
                           showActionButton: false,
                           textColor: TColors.white),
-                      SizedBox(height: TSizes.defaultSpace),
+                      const SizedBox(height: TSizes.defaultSpace),
 
                       // Categories List
-                      THomeCategories(),
-                      SizedBox(height: TSizes.defaultSpace),
+                      const THomeCategories(),
+                      const SizedBox(height: TSizes.defaultSpace),
                     ]),
                   ),
                 ],
@@ -91,9 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         TRoundedImage(imageUrl: TImages.promoBanner3),
                       ],
                     ),
-                    const SizedBox(height: TSizes.spaceBtwItems),
+
+                    TSectionsHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts())),
+                    
+                    // const SizedBox(height: TSizes.spaceBtwItems),
                     TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical())
 
+                    
 
                   ]
               ),
