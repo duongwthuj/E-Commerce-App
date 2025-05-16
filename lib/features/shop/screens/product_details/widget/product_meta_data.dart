@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/images/t_circular_image.dart';
@@ -6,7 +5,6 @@ import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_
 import 'package:thuctapcoso/common/widgets/texts/product_text.dart';
 import 'package:thuctapcoso/common/widgets/texts/t_brand_tittle_text_with_verified_icon.dart';
 import 'package:thuctapcoso/utlis/constants/enums.dart';
-
 import '../../../../../utlis/constants/colors.dart';
 import '../../../../../utlis/constants/image_strings.dart';
 import '../../../../../utlis/constants/sizes.dart';

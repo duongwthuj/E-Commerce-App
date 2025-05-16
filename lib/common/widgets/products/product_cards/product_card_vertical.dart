@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/styles/shadows..dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
@@ -74,7 +73,7 @@ class TProductCardVertical extends StatelessWidget {
                         icon: Icons.favorite,
                         width: TSizes.iconSm,
                         color: Colors.red,
-                        size: TSizes.iconSm ,
+                        size: TSizes.iconSm,
                         backgroundColor: Colors.transparent,
                       )),
                 ],

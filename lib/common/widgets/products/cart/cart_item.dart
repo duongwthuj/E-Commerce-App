@@ -7,6 +7,7 @@ import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/helpers/helper_functions.dart';
 
+// ignore: use_key_in_widget_constructors
 class TCartItem extends StatelessWidget {
 
   @override

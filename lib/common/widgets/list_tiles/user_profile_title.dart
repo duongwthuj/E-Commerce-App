@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/features/personalization/screens/profile/profile.dart';
 import '../../../utlis/constants/colors.dart';
 import '../../../utlis/constants/image_strings.dart';
