@@ -11,4 +11,12 @@ class TFormatter {
     return NumberFormat.currency(locale: 'vi_VN', symbol: '₫').format(amount);
   }
 
+  static String formatPhoneNumber(String phoneNumber) {
+    if (phoneNumber.isEmpty) return '';
+    if (phoneNumber.startsWith('0')) {
+      return '+84${phoneNumber.substring(1)}';
+    }
+    return '+84$phoneNumber';
+  }
+
 }

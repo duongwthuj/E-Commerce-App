@@ -19,12 +19,15 @@ class SignupScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Logo
-              Image(
-                height: 125,
-                image: AssetImage(dark ? TImages.darkAppLogo : TImages.lightAppLogo),
+              Center(
+                child: Image(
+                  height: 100,
+                  image: AssetImage(
+                      dark ? TImages.darkAppLogo : TImages.lightAppLogo),
+                ),
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               // Title
@@ -34,9 +37,11 @@ class SignupScreen extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               // Form
-              SignUpForm(),
+              const SignUpForm(),
+              const SizedBox(height: TSizes.spaceBtwSections),
               // Divider
               FormDivider(dividerText: TTexts.orSignUpWith.capitalize!),
+              const SizedBox(height: TSizes.spaceBtwSections),
               // Social Buttons
               const SocialButton(),
             ],

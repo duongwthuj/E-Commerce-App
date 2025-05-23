@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/navigation_menu.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/constants/text_strings.dart';

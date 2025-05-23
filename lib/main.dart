@@ -3,7 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:thuctapcoso/data/repositories.authentication/authentication_repository.dart';
+import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'firebase_options.dart';
 import 'app.dart';
 // import 'package:thuctapcoso/data/repositories.authentication/authentication_repository.dart';
