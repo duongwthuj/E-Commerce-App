@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
+import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'firebase_options.dart';
 import 'app.dart';
 // import 'package:thuctapcoso/data/repositories.authentication/authentication_repository.dart';
@@ -25,6 +26,11 @@ Future<void> main() async {
 
   /// Initialize Authentication Repository with proper instance
   Get.put(AuthenticationRepository());
+  Get.put(UserRepository());
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then(
+    (FirebaseApp value) => Get.put(AuthenticationRepository()),
+  );
 
   /// LOAD ALL the MATERIAL DESIGN / THEMES / LOCALIZATIONS / BINDINGS
   runApp(const App());

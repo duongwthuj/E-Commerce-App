@@ -80,14 +80,13 @@ class SignupController extends GetxController {
       TFullScreenLoader.stopLoading();
       TLoaders.successSnackBar(
           title: 'Signup Success', message: 'Signup successful');
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
       // show error
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(
-        // in ra kiểu dữ liệu của e
         title: 'error',
-        message: "Test",
+        message: e.toString(),
       );
     }
   }
