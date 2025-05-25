@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/list_tiles/settings_menu_title.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
+import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/features/personalization/screens/address/address.dart';
 import 'package:thuctapcoso/features/shop/screens/order/order.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
@@ -51,11 +52,11 @@ class SettingsScreen extends StatelessWidget {
                     subtitle: TTexts.setShoppingDeliveryAddress,
                     onTap: () => Get.to(() => const UserAddressScreen())),
                 TSettingsMenuTile(
-                    icon: Icons.shopping_cart_outlined,
-                    title: TTexts.myCart,
-                    subtitle: TTexts.addRemoveProductsAndMoveToCheckout,
-                    onTap: () {},
-                    ),
+                  icon: Icons.shopping_cart_outlined,
+                  title: TTexts.myCart,
+                  subtitle: TTexts.addRemoveProductsAndMoveToCheckout,
+                  onTap: () {},
+                ),
                 TSettingsMenuTile(
                     icon: Icons.shopping_bag_outlined,
                     title: TTexts.myOrder,
@@ -111,7 +112,9 @@ class SettingsScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                      onPressed: () {}, child: Text(TTexts.logout)),
+                      onPressed: () =>
+                          AuthenticationRepository.instance.logout(),
+                      child: Text(TTexts.logout)),
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
               ],

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:thuctapcoso/features/authentication/controllers/login/login_controller.dart';
 import '../../../utlis/constants/colors.dart';
 import '../../../utlis/constants/image_strings.dart';
 import '../../../utlis/constants/sizes.dart';
@@ -10,6 +13,7 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +23,7 @@ class SocialButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(100),
           ),
           child: IconButton(
-              onPressed: () {},
+              onPressed: () => controller.googleSingIn(),
               icon: const Image(
                 width: TSizes.iconMd,
                 height: TSizes.iconMd,
