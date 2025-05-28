@@ -1,3 +1,5 @@
+import 'package:flutter/src/widgets/framework.dart';
+
 class TValidator {
   static String? validateEmail(String? email) {
     if (email == null || email.isEmpty) {
@@ -41,6 +43,13 @@ class TValidator {
   }
 
   static String? validateEmpty(String? fielName, String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
+    }
+    return null;
+  }
+
+  static String? validateEmptyText(String s, String? value) {
     if (value == null || value.isEmpty) {
       return 'This field is required';
     }

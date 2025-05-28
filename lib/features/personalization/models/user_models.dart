@@ -1,4 +1,3 @@
-
 class UserModel {
   final String id;
   final String firstName;
@@ -31,14 +30,14 @@ class UserModel {
 
   // Model rỗng
   static UserModel empty() => UserModel(
-    id: '',
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    phoneNumber: '',
-    profilePicture: '',
-  );
+        id: '',
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        profilePicture: '',
+      );
 
   // Chuyển model thành JSON với key viết hoa chữ cái đầu
   Map<String, dynamic> toJson() {
