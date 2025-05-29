@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
 import 'package:thuctapcoso/features/shop/screens/all_products/all_products.dart';
-import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import '../../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
 import '../../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../../common/widgets/images/banner_slider.dart';
-import '../../../../../common/widgets/images/t_round_image.dart';
 import '../../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../../common/widgets/texts/sectionsHeading.dart';
 import '../../../../../utlis/constants/colors.dart';
 import 'home_appbar.dart';
 import 'home_categories.dart';
+import 'package:thuctapcoso/features/shop/controllers/banner_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,6 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Khởi tạo BannerController
+    Get.put(BannerController());
     // Auto-scroll the page view
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
@@ -87,13 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(children: [
-                TCarouselSlider(
-                  items: [
-                    TRoundedImage(imageUrl: TImages.promoBanner1),
-                    TRoundedImage(imageUrl: TImages.promoBanner2),
-                    TRoundedImage(imageUrl: TImages.promoBanner3),
-                  ],
-                ),
+                TCarouselSlider(),
 
                 TSectionsHeading(
                     title: 'Popular Products',

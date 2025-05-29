@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:thuctapcoso/bindings/general_bindings.dart';
 import 'package:thuctapcoso/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:thuctapcoso/routes/app_routes.dart';
 import 'package:thuctapcoso/utlis/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       home: const OnBoardingScreen(),
       initialBinding: GeneralBindings(),
+      getPages: AppRoutes.pages,
     );
   }
 }

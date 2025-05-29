@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:thuctapcoso/features/shop/controllers/banner_controller.dart';
 
 class TCarouselSlider extends StatefulWidget {
-  final List<Widget> items;
   final double height;
   final Duration autoScrollDuration;
   final bool autoScroll;
@@ -11,7 +12,6 @@ class TCarouselSlider extends StatefulWidget {
 
   const TCarouselSlider({
     super.key,
-    required this.items,
     this.height = 200,
     this.autoScrollDuration = const Duration(seconds: 3),
     this.autoScroll = true,
@@ -32,8 +32,11 @@ class _TCarouselSliderState extends State<TCarouselSlider> {
     super.initState();
     if (widget.autoScroll) {
       _timer = Timer.periodic(widget.autoScrollDuration, (timer) {
-        if (_pageController.hasClients) {
-          _currentPage = (_currentPage + 1) % widget.items.length;
+        final bannerController = Get.find<BannerController>();
+        final banners =
+            bannerController.banners.where((b) => b.active).toList();
+        if (_pageController.hasClients && banners.isNotEmpty) {
+          _currentPage = (_currentPage + 1) % banners.length;
           _pageController.animateToPage(
             _currentPage,
             duration: const Duration(milliseconds: 800),
@@ -53,38 +56,51 @@ class _TCarouselSliderState extends State<TCarouselSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: widget.height,
-          child: PageView.builder(
+    final bannerController = Get.find<BannerController>();
+    return Obx(() {
+      final banners = bannerController.banners.where((b) => b.active).toList();
+      if (bannerController.isLoading.value) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      if (banners.isEmpty) {
+        return const Center(child: Text('No banners'));
+      }
+      return Column(
+        children: [
+          SizedBox(
+            height: widget.height,
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: banners.length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: widget.padding,
+                  child: Image.network(
+                    banners[index].imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 10),
+          SmoothPageIndicator(
             controller: _pageController,
-            itemCount: widget.items.length,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: widget.padding,
-                child: widget.items[index],
-              );
-            },
+            count: banners.length,
+            effect: WormEffect(
+              dotColor: Colors.grey,
+              activeDotColor: Theme.of(context).primaryColor,
+              dotHeight: 8,
+              dotWidth: 8,
+            ),
           ),
-        ),
-        const SizedBox(height: 10),
-        SmoothPageIndicator(
-          controller: _pageController,
-          count: widget.items.length,
-          effect: WormEffect(
-            dotColor: Colors.grey,
-            activeDotColor: Theme.of(context).primaryColor,
-            dotHeight: 8,
-            dotWidth: 8,
-          ),
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 }

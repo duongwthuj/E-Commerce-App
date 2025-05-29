@@ -29,7 +29,7 @@ class CategoryController extends GetxController {
       // Update the state
       allCategories.assignAll(categories); 
       // filter featured categories
-      featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId == null).take(8).toList());
+      featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId!.isEmpty).take(8).toList());
     } catch(e){
       TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     } finally {

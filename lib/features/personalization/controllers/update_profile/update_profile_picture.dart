@@ -8,7 +8,7 @@ import 'package:thuctapcoso/services/cloudinary_service.dart';
 import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
-
+import 'package:path/path.dart' as path;
 
 class UpdateProfilePictureController extends GetxController {
   static UpdateProfilePictureController get instance => Get.find();
@@ -21,7 +21,8 @@ class UpdateProfilePictureController extends GetxController {
   Future<void> pickAndUploadImage() async {
     try {
       // Show loading
-      TFullScreenLoader.openLoadingDialog('Updating profile picture...', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog(
+          'Updating profile picture...', TImages.docerAnimation);
 
       // Pick image
       final XFile? image = await imagePicker.pickImage(
@@ -34,9 +35,20 @@ class UpdateProfilePictureController extends GetxController {
         return;
       }
 
+      // Ensure the path is properly formatted
+      final String normalizedPath = path.normalize(image.path);
+      if (!normalizedPath.startsWith('/')) {
+        throw Exception('Invalid file path format');
+      }
+
+      // Create File object with normalized path
+      final File imageFile = File(normalizedPath);
+      if (!await imageFile.exists()) {
+        throw Exception('Selected file does not exist');
+      }
+
       // Upload to Cloudinary
-      final imageUrl =
-          await cloudinaryService.uploadProfileImage(File(image.path));
+      final imageUrl = await cloudinaryService.uploadProfileImage(imageFile);
 
       // Update user profile in Firestore
       await userRepository.updateSingleField({
@@ -64,7 +76,7 @@ class UpdateProfilePictureController extends GetxController {
       // Show error message
       TLoaders.errorSnackBar(
         title: 'Error',
-        message: 'Failed to update profile picture. Please try again.',
+        message: 'Failed to update profile picture: ${e.toString()}',
       );
     }
   }

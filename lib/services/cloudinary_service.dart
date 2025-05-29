@@ -12,7 +12,8 @@ class CloudinaryService {
   final String apiSecret = '7SNpxHg5_wgMsd2VScLGpW7vz8Q';
   final String uploadPreset = 'ml_default';
 
-  Future<String> uploadProfileImage(File imageFile) async {
+  Future<String> uploadImage(File imageFile,
+      {String folder = 'profile_images'}) async {
     try {
       print('Starting upload to Cloudinary...'); // Debug log
 
@@ -33,8 +34,8 @@ class CloudinaryService {
       // Add upload preset and credentials
       request.fields.addAll({
         'upload_preset': uploadPreset,
-        'api_key': apiKey,
-        'timestamp': DateTime.now().millisecondsSinceEpoch.toString(),
+        'folder': folder,
+        'resource_type': 'image',
       });
 
       // Send request
@@ -52,7 +53,16 @@ class CloudinaryService {
       }
     } catch (e) {
       print('Cloudinary upload error: $e'); // Debug log
-      throw Exception('Failed to upload profile image: $e');
+      throw Exception('Failed to upload image: $e');
     }
+  }
+
+  // Helper methods for specific upload types
+  Future<String> uploadProfileImage(File imageFile) async {
+    return uploadImage(imageFile, folder: 'profile_images');
+  }
+
+  Future<String> uploadBannerImage(File imageFile) async {
+    return uploadImage(imageFile, folder: 'banners');
   }
 }
