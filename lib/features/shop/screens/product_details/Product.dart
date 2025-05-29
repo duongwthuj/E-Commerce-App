@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
+import 'package:thuctapcoso/features/shop/models/product_model.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/bottom_add_to_cart.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/product_attributes.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/product_detail_image_slider.dart';
@@ -12,7 +13,9 @@ import 'package:thuctapcoso/features/shop/screens/store/product_reviewers/produc
 import '../../../../utlis/constants/sizes.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

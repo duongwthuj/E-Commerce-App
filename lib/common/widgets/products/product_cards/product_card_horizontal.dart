@@ -7,6 +7,7 @@ import 'package:thuctapcoso/common/widgets/images/t_round_image.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
 import 'package:thuctapcoso/common/widgets/texts/product_text.dart';
 import 'package:thuctapcoso/common/widgets/texts/t_brand_tittle_text_with_verified_icon.dart';
+import 'package:thuctapcoso/features/shop/models/product_model.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/Product.dart';
 import 'package:thuctapcoso/utlis/constants/colors.dart';
 import 'package:thuctapcoso/utlis/constants/image_strings.dart';
@@ -21,7 +22,7 @@ class TProductCardHorizontal extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() =>  ProductDetailScreen(product: ProductModel.empty())),
       child: Container(
         width: 310,
         height: 140,
@@ -46,7 +47,7 @@ class TProductCardHorizontal extends StatelessWidget {
                     child: TRoundedImage(
                       imageUrl: TImages.productImage1,
                       applyImageRadius: true,
-                      isNetworkImage: false,
+                      isNetworkImage: true,
                     ),
                   ),
 

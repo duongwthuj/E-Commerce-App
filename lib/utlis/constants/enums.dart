@@ -16,3 +16,9 @@ enum PaymentMethod{
   creditCard,
   cashOnDelivery,
 }
+
+enum ProductType {
+  single,
+  variable,
+}
+

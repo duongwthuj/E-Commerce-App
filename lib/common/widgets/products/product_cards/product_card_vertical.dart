@@ -3,26 +3,31 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/styles/shadows..dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
+import 'package:thuctapcoso/features/shop/controllers/product_controller.dart';
+import 'package:thuctapcoso/features/shop/models/product_model.dart';
+import 'package:thuctapcoso/utlis/constants/enums.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../../features/shop/screens/product_details/Product.dart';
 import '../../../../utlis/constants/colors.dart';
-import '../../../../utlis/constants/image_strings.dart';
 import '../../../../utlis/constants/sizes.dart';
 import '../../icons/t_circular_icon.dart';
 import '../../images/t_round_image.dart';
 import '../../texts/product_text.dart';
 import '../../texts/t_brand_tittle_text_with_verified_icon.dart';
-import '../../../../utlis/constants/text_strings.dart';
 
 class TProductCardVertical extends StatelessWidget {
-  const TProductCardVertical({super.key});
+  const TProductCardVertical({super.key, required this.product});
 
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
+
     final dark = THelperFunction.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateDiscountPercentage(product.price, product.salePrice);
 
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -43,7 +48,7 @@ class TProductCardVertical extends StatelessWidget {
                 children: [
                   // Product image
                   TRoundedImage(
-                      imageUrl: TImages.productImage2, applyImageRadius: true),
+                      imageUrl: product.thumbnail, applyImageRadius: true),
 
                   // Sale tag
                   Positioned(
@@ -56,7 +61,7 @@ class TProductCardVertical extends StatelessWidget {
                         horizontal: TSizes.sm,
                       ),
                       child: Text(
-                        '20% off',
+                        salePercentage != null ? '$salePercentage% off' : '',
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -78,7 +83,7 @@ class TProductCardVertical extends StatelessWidget {
                       )),
                 ],
               ),
-            ),
+            ),  
 
             // Details
             Padding(
@@ -87,11 +92,11 @@ class TProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTittleText(
-                    title: TTexts.popularProducts,
+                    title: product.title,
                     smallSize: true,
                   ),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon(title: TTexts.nike),
+                  TBrandTitleWithVerifiedIcon(title: product.brand!.name),
                 ],
               ),
             ),
@@ -101,11 +106,18 @@ class TProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: TSizes.xs),
-                  child: TProductPriceText(
-                    price: '100',
-                    isLarge: true,
+                Flexible(
+                  child: Column(
+                    children: [
+                      if (product.productType == ProductType.single.toString() && product.salePrice > 0)
+                      Padding(
+                        padding: EdgeInsets.only(left: TSizes.xs),
+                        child: Text(
+                          product.price.toString(),
+                          style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                        )
+                        ),
+                    ],
                   ),
                 ),
                 Container(

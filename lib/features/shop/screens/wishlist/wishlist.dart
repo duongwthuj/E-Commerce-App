@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
+import 'package:thuctapcoso/features/shop/models/product_model.dart';
 import '../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../navigation_menu.dart';
@@ -36,8 +36,8 @@ class FavouritesScreen extends StatelessWidget {
                   children: [
                     TGridLayout(
                         itemCount: 6,
-                        itemBuilder: (_, index) =>
-                            const TProductCardVertical()),
+                        itemBuilder: (_, index) => TProductCardVertical(
+                            product: ProductModel.empty())),
                   ],
                 ))));
   }

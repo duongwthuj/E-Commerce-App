@@ -12,8 +12,7 @@ class CloudinaryService {
   final String apiSecret = '7SNpxHg5_wgMsd2VScLGpW7vz8Q';
   final String uploadPreset = 'ml_default';
 
-  Future<String> uploadImage(File imageFile,
-      {String folder = 'profile_images'}) async {
+  Future<String> uploadProfileImage(File imageFile) async {
     try {
       print('Starting upload to Cloudinary...'); // Debug log
 
@@ -34,7 +33,7 @@ class CloudinaryService {
       // Add upload preset and credentials
       request.fields.addAll({
         'upload_preset': uploadPreset,
-        'folder': folder,
+        'folder': 'profile_images',
         'resource_type': 'image',
       });
 
@@ -44,25 +43,16 @@ class CloudinaryService {
 
       if (response.statusCode == 200) {
         var jsonResponse = json.decode(response.body);
-        print('Upload successful: ${jsonResponse['secure_url']}'); // Debug log
+        // print('Upload successful: ${jsonResponse['secure_url']}'); // Debug log
         return jsonResponse['secure_url'];
       } else {
-        print('Upload failed with status: ${response.statusCode}');
-        print('Response body: ${response.body}');
+        // print('Upload failed with status: ${response.statusCode}');
+        // print('Response body: ${response.body}');
         throw Exception('Upload failed with status: ${response.statusCode}');
       }
     } catch (e) {
-      print('Cloudinary upload error: $e'); // Debug log
-      throw Exception('Failed to upload image: $e');
+      // print('Cloudinary upload error: $e'); // Debug log
+      throw Exception('Failed to upload profile image: $e');
     }
-  }
-
-  // Helper methods for specific upload types
-  Future<String> uploadProfileImage(File imageFile) async {
-    return uploadImage(imageFile, folder: 'profile_images');
-  }
-
-  Future<String> uploadBannerImage(File imageFile) async {
-    return uploadImage(imageFile, folder: 'banners');
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
+import 'package:thuctapcoso/common/widgets/shimmer/vertical_product_shimmer.dart';
+import 'package:thuctapcoso/features/shop/controllers/product_controller.dart';
 import 'package:thuctapcoso/features/shop/screens/all_products/all_products.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import '../../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
@@ -48,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -94,9 +97,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Get.to(() => const AllProducts())),
 
                 // const SizedBox(height: TSizes.spaceBtwItems),
-                TGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => const TProductCardVertical())
+                Obx(() {
+                  if (controller.isLoading.value) {
+                    return const TVerticalProductShimmer();
+                  }
+
+                  if (controller.featuredProducts.isEmpty) {
+                    return const Center(child: Text('No products found'));
+                  }
+
+                  return TGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCardVertical(
+                            product: controller.featuredProducts[index],
+                      ));
+                })
               ]),
             ),
             // Page indicator
