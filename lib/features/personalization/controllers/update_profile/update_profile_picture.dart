@@ -5,8 +5,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';
 import 'package:thuctapcoso/services/cloudinary_service.dart';
+import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
+
 
 class UpdateProfilePictureController extends GetxController {
   static UpdateProfilePictureController get instance => Get.find();
@@ -19,7 +21,7 @@ class UpdateProfilePictureController extends GetxController {
   Future<void> pickAndUploadImage() async {
     try {
       // Show loading
-      TFullScreenLoader.openLoadingDialog('Updating profile picture...');
+      TFullScreenLoader.openLoadingDialog('Updating profile picture...', TImages.docerAnimation);
 
       // Pick image
       final XFile? image = await imagePicker.pickImage(

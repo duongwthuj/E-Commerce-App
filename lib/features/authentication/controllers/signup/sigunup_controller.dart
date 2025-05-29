@@ -5,6 +5,7 @@ import 'package:thuctapcoso/data/repositories/anthentications/authentication_rep
 import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/features/authentication/screens/signup/verify_email.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
+import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
 
@@ -25,7 +26,7 @@ class SignupController extends GetxController {
   Future<void> signup() async {
     try {
       // Start loading
-      TFullScreenLoader.openLoadingDialog('we are processing your request....');
+      TFullScreenLoader.openLoadingDialog('we are processing your request....', TImages.docerAnimation);
 
       // Form validation
       if (!signupFormKey.currentState!.validate()) {

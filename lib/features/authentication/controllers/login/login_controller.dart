@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';
+import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
 
@@ -33,7 +34,7 @@ class LoginController extends GetxController {
   Future<void> emailAndPasswordSignIn() async {
     try {
       // Start loading
-      TFullScreenLoader.openLoadingDialog('Logging you in...');
+      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.docerAnimation );
 
 
       // Check internet connection
@@ -76,7 +77,7 @@ class LoginController extends GetxController {
   Future<void> googleSingIn() async {
   try {
       // Start loading
-      TFullScreenLoader.openLoadingDialog('Logging you in...');
+      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.docerAnimation );
 
 
       // Check internet connection

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
 import 'package:thuctapcoso/features/authentication/screens/login/login.dart';
+import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
 
@@ -16,7 +16,8 @@ class ForgotPasswordController extends GetxController {
   Future<void> sendPasswordResetEmail(String email) async {
     try {
       // Start loading
-      TFullScreenLoader.openLoadingDialog('Sending password reset email...');
+      TFullScreenLoader.openLoadingDialog(
+          'Sending password reset email...', TImages.docerAnimation);
 
       // Check internet connection
       final isConnected = await NetworkManager.instance.isConnected();

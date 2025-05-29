@@ -6,7 +6,7 @@ import '../helpers/helper_functions.dart';
 /// A utility class for managing a full-screen loading dialog.
 class TFullScreenLoader {
   /// Open a full-screen loading dialog with a given text.
-  static void openLoadingDialog(String text) {
+  static void openLoadingDialog(String text, String image) {
     showDialog(
       context: Get.overlayContext!,
       barrierDismissible: false,
@@ -24,7 +24,7 @@ class TFullScreenLoader {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CircularProgressIndicator(),
+                  Image.asset(image),
                   const SizedBox(height: 20),
                   Text(
                     text,

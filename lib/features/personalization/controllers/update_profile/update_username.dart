@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:thuctapcoso/data/models/user_model.dart';
 import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';
@@ -8,34 +9,32 @@ import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
 
-/// Controller to manage user-related functionality.
-class UpdateNameController extends GetxController {
-  static UpdateNameController get instance => Get.find();
+/// Controller to manage username update functionality.
+class UpdateUsernameController extends GetxController {
+  static UpdateUsernameController get instance => Get.find();
 
-  final firstName = TextEditingController();
-  final lastName = TextEditingController();
+  final username = TextEditingController();
   final userController = UserController.instance;
   final userRepository = Get.put(UserRepository());
-  GlobalKey<FormState> updateUserNameFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> updateUsernameFormKey = GlobalKey<FormState>();
 
   /// init user data when Home Screen appears
   @override
   void onInit() {
-    initializeNames();
+    initializeUsername();
     super.onInit();
   }
 
   /// Fetch user record
-  Future<void> initializeNames() async {
-    firstName.text = userController.user.value.firstName;
-    lastName.text = userController.user.value.lastName;
+  Future<void> initializeUsername() async {
+    username.text = userController.user.value.username;
   }
 
-  Future<void> updateUserName() async {
+  Future<void> updateUsername() async {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are updating your information...', TImages.docerAnimation);
+          'We are updating your username...', TImages.docerAnimation);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -45,21 +44,28 @@ class UpdateNameController extends GetxController {
       }
 
       // Form Validation
-      if (!updateUserNameFormKey.currentState!.validate()) {
+      if (!updateUsernameFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      // Update user's first & last name in the Firebase Firestore
-      Map<String, dynamic> name = {
-        'FirstName': firstName.text.trim(),
-        'LastName': lastName.text.trim()
+      // Update user's username in the Firebase Firestore
+      Map<String, dynamic> usernameData = {
+        'Username': username.text.trim(),
       };
-      await userRepository.updateSingleField(name);
+      await userRepository.updateSingleField(usernameData);
 
-      // Update the RX User value
-      userController.user.value.firstName = firstName.text.trim();
-      userController.user.value.lastName = lastName.text.trim();
+      // Update the RX User value by creating a new instance
+      final currentUser = userController.user.value;
+      userController.user.value = UserModel(
+        id: currentUser.id,
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+        username: username.text.trim(),
+        email: currentUser.email,
+        phoneNumber: currentUser.phoneNumber,
+        profilePicture: currentUser.profilePicture,
+      );
 
       // Refresh user data
       await userController.fetchUserRecord();
@@ -69,7 +75,7 @@ class UpdateNameController extends GetxController {
 
       // Show Success Message
       TLoaders.successSnackBar(
-          title: 'Congratulations', message: 'Your Name has been updated.');
+          title: 'Congratulations', message: 'Your username has been updated.');
 
       // Move to previous screen.
       Get.off(() => const ProfileScreen());

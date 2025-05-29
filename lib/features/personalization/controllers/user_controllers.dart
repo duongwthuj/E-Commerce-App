@@ -8,6 +8,7 @@ import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
 import 'package:thuctapcoso/features/authentication/screens/login/login.dart';
 import 'package:thuctapcoso/features/personalization/screens/profile/widgets/re_authenticate_user_login_form.dart';
+import 'package:thuctapcoso/utlis/constants/image_strings.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
@@ -95,7 +96,7 @@ class UserController extends GetxController {
   /// delete user Account
   void deleteUserAccount() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing');
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
       /// First re-authenticate user
       final auth = AuthenticationRepository.instance;
@@ -125,7 +126,7 @@ class UserController extends GetxController {
   // Re-Authenticate User
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing');
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
       // Check Internet
       final isConnected = await NetworkManager.instance.isConnected();

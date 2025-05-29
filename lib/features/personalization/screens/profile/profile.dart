@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/common/widgets/images/t_circular_image.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
+import 'package:thuctapcoso/features/personalization/controllers/update_profile/update_date_of_birth.dart';
+import 'package:thuctapcoso/features/personalization/controllers/update_profile/update_gender.dart';
 import 'package:thuctapcoso/features/personalization/controllers/update_profile/update_profile_picture.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';
+import 'package:thuctapcoso/features/personalization/screens/profile/widgets/change_email.dart';
 import 'package:thuctapcoso/features/personalization/screens/profile/widgets/change_name.dart';
+import 'package:thuctapcoso/features/personalization/screens/profile/widgets/change_username.dart';
 import 'package:thuctapcoso/features/personalization/screens/profile/widgets/profile_menu.dart';
 
 import '../../../../utlis/constants/image_strings.dart';
@@ -18,6 +22,8 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     final profilePictureController = Get.put(UpdateProfilePictureController());
+    final genderController = Get.put(UpdateGenderController());
+    final dateOfBirthController = Get.put(UpdateDateOfBirthController());
 
     // Refresh user data when screen is loaded
     controller.fetchUserRecord();
@@ -69,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                   TProfileMenu(
                     title: 'username',
                     value: controller.user.value.username,
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const ChangeUsernameScreen()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems * 2.5),
                   const Divider(),
@@ -82,22 +88,117 @@ class ProfileScreen extends StatelessWidget {
                   TProfileMenu(
                     title: 'Email',
                     value: controller.user.value.email,
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const ChangeEmailScreen()),
                   ),
                   TProfileMenu(
                     title: 'phonenumber',
                     value: controller.user.value.phoneNumber,
                     onPressed: () {},
                   ),
-                  TProfileMenu(
-                    title: 'gender',
-                    value: "",
-                    onPressed: () {},
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: TSizes.spaceBtwItems / 2),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Text(
+                            'Gender',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Obx(() => DropdownButton<String>(
+                                value: genderController
+                                        .selectedGender.value.isEmpty
+                                    ? null
+                                    : genderController.selectedGender.value,
+                                isExpanded: true,
+                                underline: const SizedBox(),
+                                items: const [
+                                  DropdownMenuItem(
+                                    value: 'Male',
+                                    child: Text('Male'),
+                                  ),
+                                  DropdownMenuItem(
+                                    value: 'Female',
+                                    child: Text('Female'),
+                                  ),
+                                  DropdownMenuItem(
+                                    value: 'Other',
+                                    child: Text('Other'),
+                                  ),
+                                ],
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    genderController.updateGender(value);
+                                  }
+                                },
+                              )),
+                        ),
+                      ],
+                    ),
                   ),
-                  TProfileMenu(
-                    title: 'Date Of Birth',
-                    value: "",
-                    onPressed: () {},
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: TSizes.spaceBtwItems / 2),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Text(
+                            'Date Of Birth',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Obx(() => InkWell(
+                                onTap: () async {
+                                  final DateTime? picked = await showDatePicker(
+                                    context: context,
+                                    initialDate: dateOfBirthController
+                                            .selectedDate.value.isEmpty
+                                        ? DateTime.now()
+                                        : DateTime.parse(dateOfBirthController
+                                            .selectedDate.value),
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime.now(),
+                                  );
+                                  if (picked != null) {
+                                    final formattedDate =
+                                        "${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
+                                    dateOfBirthController
+                                        .updateDateOfBirth(formattedDate);
+                                  }
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 8),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Theme.of(context)
+                                            .dividerColor
+                                            .withOpacity(0.1),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    dateOfBirthController
+                                            .selectedDate.value.isEmpty
+                                        ? 'Select Date'
+                                        : dateOfBirthController
+                                            .selectedDate.value,
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                              )),
+                        ),
+                      ],
+                    ),
                   ),
                   const Divider(),
                   const SizedBox(height: TSizes.spaceBtwItems * 2.5),
