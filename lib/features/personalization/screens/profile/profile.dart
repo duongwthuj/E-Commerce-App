@@ -95,111 +95,67 @@ class ProfileScreen extends StatelessWidget {
                     value: controller.user.value.phoneNumber,
                     onPressed: () {},
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: TSizes.spaceBtwItems / 2),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Text(
-                            'Gender',
-                            style: Theme.of(context).textTheme.bodySmall,
+                  Obx(() => TProfileMenu(
+                    title: 'Gender',
+                    value: genderController.selectedGender.value.isEmpty 
+                        ? 'Select Gender' 
+                        : genderController.selectedGender.value,
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Select Gender'),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ListTile(
+                                title: const Text('Male'),
+                                onTap: () {
+                                  genderController.updateGender('Male');
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: const Text('Female'),
+                                onTap: () {
+                                  genderController.updateGender('Female');
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: const Text('Other'),
+                                onTap: () {
+                                  genderController.updateGender('Other');
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          flex: 5,
-                          child: Obx(() => DropdownButton<String>(
-                                value: genderController
-                                        .selectedGender.value.isEmpty
-                                    ? null
-                                    : genderController.selectedGender.value,
-                                isExpanded: true,
-                                underline: const SizedBox(),
-                                items: const [
-                                  DropdownMenuItem(
-                                    value: 'Male',
-                                    child: Text('Male'),
-                                  ),
-                                  DropdownMenuItem(
-                                    value: 'Female',
-                                    child: Text('Female'),
-                                  ),
-                                  DropdownMenuItem(
-                                    value: 'Other',
-                                    child: Text('Other'),
-                                  ),
-                                ],
-                                onChanged: (value) {
-                                  if (value != null) {
-                                    genderController.updateGender(value);
-                                  }
-                                },
-                              )),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: TSizes.spaceBtwItems / 2),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Text(
-                            'Date Of Birth',
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Obx(() => InkWell(
-                                onTap: () async {
-                                  final DateTime? picked = await showDatePicker(
-                                    context: context,
-                                    initialDate: dateOfBirthController
-                                            .selectedDate.value.isEmpty
-                                        ? DateTime.now()
-                                        : DateTime.parse(dateOfBirthController
-                                            .selectedDate.value),
-                                    firstDate: DateTime(1900),
-                                    lastDate: DateTime.now(),
-                                  );
-                                  if (picked != null) {
-                                    final formattedDate =
-                                        "${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
-                                    dateOfBirthController
-                                        .updateDateOfBirth(formattedDate);
-                                  }
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 8),
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        color: Theme.of(context)
-                                            .dividerColor
-                                            .withOpacity(0.1),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    dateOfBirthController
-                                            .selectedDate.value.isEmpty
-                                        ? 'Select Date'
-                                        : dateOfBirthController
-                                            .selectedDate.value,
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                              )),
-                        ),
-                      ],
-                    ),
-                  ),
+                      );
+                    },
+                  )),
+                  Obx(() => TProfileMenu(
+                    title: 'Date Of Birth',
+                    value: dateOfBirthController.selectedDate.value.isEmpty 
+                        ? 'Select Date' 
+                        : dateOfBirthController.selectedDate.value,
+                    onPressed: () async {
+                      final DateTime? picked = await showDatePicker(
+                        context: context,
+                        initialDate: dateOfBirthController.selectedDate.value.isEmpty
+                            ? DateTime.now()
+                            : DateTime.parse(dateOfBirthController.selectedDate.value),
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+                      );
+                      if (picked != null) {
+                        final formattedDate =
+                            "${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
+                        dateOfBirthController.updateDateOfBirth(formattedDate);
+                      }
+                    },
+                  )),
                   const Divider(),
                   const SizedBox(height: TSizes.spaceBtwItems * 2.5),
                   Center(

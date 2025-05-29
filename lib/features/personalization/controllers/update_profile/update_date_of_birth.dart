@@ -1,6 +1,4 @@
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:thuctapcoso/data/models/user_model.dart';
 import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';

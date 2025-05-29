@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/appbar/appbar.dart';
 import 'package:thuctapcoso/features/personalization/controllers/update_profile/update_username.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
-import 'package:thuctapcoso/utlis/constants/text_strings.dart';
 import 'package:thuctapcoso/utlis/validators/validation.dart';
 
 class ChangeUsernameScreen extends StatelessWidget {
