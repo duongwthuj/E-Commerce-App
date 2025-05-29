@@ -10,18 +10,19 @@ import 'package:thuctapcoso/common/widgets/product_cart/cart_menu_icon.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
 import 'package:thuctapcoso/features/shop/screens/brands/all_brands.dart';
 import 'package:thuctapcoso/features/shop/screens/store/category/category_tab.dart';
+import 'package:thuctapcoso/features/shop/controllers/category_controller.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../../utlis/constants/sizes.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
-
   // get tabs => null;
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: TAppBar(
           showBackArrow: false,
@@ -80,26 +81,15 @@ class Store extends StatelessWidget {
                       ),
                     ),
                   ),
-                  bottom: const TTabBar(
-                    tabs: [
-                      Tab(text: 'All'),
-                      Tab(text: 'Clothes'),
-                      Tab(text: 'Shoes'),
-                      Tab(text: 'Accessories'),
-                      Tab(text: 'Bags'),
-                    ],
+                  bottom: TTabBar(
+                    tabs: categories.map((category) => Tab(text: category.name)).toList(),
                   ),
                 ),
               ];
             },
-            body: TabBarView(children: [
-
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-            ])),
+            body: TabBarView(children: 
+            categories.map((category) => TCategoryTab(category: category)).toList(),
+            )),
       ),
     );
   }
