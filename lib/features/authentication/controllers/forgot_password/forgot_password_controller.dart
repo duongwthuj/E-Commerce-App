@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/data/servierce/network_manager.dart';
-import 'package:thuctapcoso/navigation_menu.dart';
+import 'package:thuctapcoso/features/authentication/screens/login/login.dart';
 import 'package:thuctapcoso/utlis/popups/full_screen_loader.dart';
 import 'package:thuctapcoso/utlis/popups/loaders.dart';
 
 class ForgotPasswordController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final RxBool isLoading = false.obs;
   final RxString errorMessage = ''.obs;
 
@@ -26,9 +28,13 @@ class ForgotPasswordController extends GetxController {
         return;
       }
 
-      // Check if email exists
-      final methods = await _auth.fetchSignInMethodsForEmail(email);
-      if (methods.isEmpty) {
+      // Check if email exists in Firestore
+      final userQuery = await _firestore
+          .collection('Users')
+          .where('Email', isEqualTo: email)
+          .get();
+
+      if (userQuery.docs.isEmpty) {
         TFullScreenLoader.stopLoading();
         TLoaders.warningSnackBar(
           title: 'Account not found',
@@ -38,17 +44,18 @@ class ForgotPasswordController extends GetxController {
         return;
       }
 
-      // If email exists, send reset email
+      // If email exists in Firestore, send reset email
       await _auth.sendPasswordResetEmail(email: email);
 
       TFullScreenLoader.stopLoading();
       TLoaders.successSnackBar(
         title: 'Success',
-        message: 'Password reset email has been sent to your email address',
+        message:
+            'Password reset email has been sent to your email address. Please check your email and login with your new password.',
       );
 
-      // Navigate to home screen only after successful reset email
-      Get.offAll(() => const NavigationMenu());
+      // Navigate to login screen after successful reset email
+      Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(

@@ -86,25 +86,24 @@ class _HomeScreenState extends State<HomeScreen> {
             // Body
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
-              child: Column(
-                  children: [
-                    TCarouselSlider(
-                      items: [
-                        TRoundedImage(imageUrl: TImages.promoBanner1),
-                        TRoundedImage(imageUrl: TImages.promoBanner2),
-                        TRoundedImage(imageUrl: TImages.promoBanner3),
-                      ],
-                    ),
+              child: Column(children: [
+                TCarouselSlider(
+                  items: [
+                    TRoundedImage(imageUrl: TImages.promoBanner1),
+                    TRoundedImage(imageUrl: TImages.promoBanner2),
+                    TRoundedImage(imageUrl: TImages.promoBanner3),
+                  ],
+                ),
 
-                    TSectionsHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts())),
-                    
-                    // const SizedBox(height: TSizes.spaceBtwItems),
-                    TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical())
+                TSectionsHeading(
+                    title: 'Popular Products',
+                    onPressed: () => Get.to(() => const AllProducts())),
 
-                    
-
-                  ]
-              ),
+                // const SizedBox(height: TSizes.spaceBtwItems),
+                TGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) => const TProductCardVertical())
+              ]),
             ),
             // Page indicator
           ],
@@ -113,5 +112,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-

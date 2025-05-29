@@ -60,6 +60,9 @@ class UpdateNameController extends GetxController {
       userController.user.value.firstName = firstName.text.trim();
       userController.user.value.lastName = lastName.text.trim();
 
+      // Refresh user data
+      await userController.fetchUserRecord();
+
       // Remove Loader
       TFullScreenLoader.stopLoading();
 

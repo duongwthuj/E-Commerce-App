@@ -24,6 +24,10 @@ dependencies:
   carousel_slider: ^4.1.1
   lottie: ^2.7.0
   connectivity_plus: ^4.0.0
+  cloudinary_public: ^0.20.0
+  image_picker: ^1.0.7
+  path: ^1.8.3
+  uuid: ^4.2.2
   
   # Firebase Packages
   firebase_core: ^3.13.1
@@ -91,3 +95,5 @@ flutter:
           weight: 800
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 600
+
+ 
