@@ -1,7 +1,7 @@
 class ProductVariationModel {
   final String id;
   String sku;
-  String image;
+  String? image;
   String? description;
   double price;
   double salePrice;
@@ -11,7 +11,7 @@ class ProductVariationModel {
   ProductVariationModel({
     required this.id,
     this.sku = "",
-    this.image = "",
+    this.image,
     this.description = "",
     this.price = 0,
     this.salePrice = 0,

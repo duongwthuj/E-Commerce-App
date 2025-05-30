@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:thuctapcoso/common/styles/shadows..dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
-import 'package:thuctapcoso/features/shop/controllers/product_controller.dart';
+import 'package:thuctapcoso/features/shop/controllers/product/product_controller.dart';
 import 'package:thuctapcoso/features/shop/models/product_model.dart';
 import 'package:thuctapcoso/utlis/constants/enums.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';

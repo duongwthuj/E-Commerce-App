@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import '../../../utlis/constants/colors.dart';
 import '../../../utlis/constants/sizes.dart';
+import 'cached_network_image.dart';
 
 class TRoundedImage extends StatelessWidget {
-  const TRoundedImage({
-    super.key,
-    this.width,
-    this.height,
-    required this.imageUrl,
-    this.applyImageRadius = false,
-    this.border,
-    this.backgroundColor,
-    this.fit = BoxFit.contain, // Default fit
-    this.padding,
-    this.isNetworkImage = false,
-    this.onPressed, // Use only one callback
-    this.borderRadius = TSizes.md
-  });
+  const TRoundedImage(
+      {super.key,
+      this.width,
+      this.height,
+      required this.imageUrl,
+      this.applyImageRadius = false,
+      this.border,
+      this.backgroundColor,
+      this.fit = BoxFit.contain,
+      this.padding,
+      this.isNetworkImage = true,
+      this.onPressed,
+      this.borderRadius = TSizes.md});
 
   final double? width, height;
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
   final Color? backgroundColor;
-  final BoxFit? fit;
+  final BoxFit fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;
   final VoidCallback? onPressed;
@@ -46,23 +46,18 @@ class TRoundedImage extends StatelessWidget {
         child: ClipRRect(
           borderRadius: applyImageRadius
               ? BorderRadius.circular(borderRadius)
-              : BorderRadius.zero, // Apply radius conditionally
+              : BorderRadius.zero,
           child: isNetworkImage
-              ? Image.network(
-            imageUrl,
-            fit: fit,
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(child: CircularProgressIndicator());
-            },
-            errorBuilder: (context, error, stackTrace) {
-              return Center(child: Icon(Icons.error));
-            },
-          )
+              ? CacheNetworkImage(
+                  image: imageUrl,
+                  fit: fit,
+                  width: width,
+                  height: height,
+                )
               : Image.asset(
-            imageUrl,
-            fit: fit,
-          ),
+                  imageUrl,
+                  fit: fit,
+                ),
         ),
       ),
     );

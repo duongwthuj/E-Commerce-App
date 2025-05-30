@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
 import 'package:thuctapcoso/common/widgets/shimmer/vertical_product_shimmer.dart';
-import 'package:thuctapcoso/features/shop/controllers/product_controller.dart';
+import 'package:thuctapcoso/features/shop/controllers/product/product_controller.dart';
 import 'package:thuctapcoso/features/shop/screens/all_products/all_products.dart';
 import 'package:thuctapcoso/utlis/constants/sizes.dart';
 import '../../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';

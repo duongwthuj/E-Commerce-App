@@ -10,6 +10,7 @@ import 'package:thuctapcoso/features/shop/screens/product_details/widget/product
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/product_meta_data.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/rating_share_widget.dart';
 import 'package:thuctapcoso/features/shop/screens/store/product_reviewers/product_reviewers.dart';
+import 'package:thuctapcoso/utlis/constants/enums.dart';
 import '../../../../utlis/constants/sizes.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -20,13 +21,14 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final dark = THelperFunction.isDarkMode(context);
+
     return Scaffold(
         bottomNavigationBar: TBottomAddToCart(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               // Product image slider
-              TProductImageSlider(),
+              TProductImageSlider(product: product),
 
               // Product details
               Padding(
@@ -40,10 +42,14 @@ class ProductDetailScreen extends StatelessWidget {
                     // Rating and share
                     TRatingandShare(),
                     // Price title stack brands
-                    TProductMetaData(),
+                    TProductMetaData(product: product),
                     // attribute
-                    TProductAttributes(),
-                    const SizedBox(height: TSizes.spaceBtwItems * 1.5),
+                    if (product.productAttributes != null &&
+                        product.productAttributes!.isNotEmpty)
+                      TProductAttributes(product: product),
+                    if (product.productAttributes != null &&
+                        product.productAttributes!.isNotEmpty)
+                      const SizedBox(height: TSizes.spaceBtwItems * 1.5),
                     // checkout button
                     SizedBox(
                         width: double.infinity,
@@ -55,7 +61,7 @@ class ProductDetailScreen extends StatelessWidget {
                         title: 'Description', showActionButton: false),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     ReadMoreText(
-                      'This is a product description. It is a short description of the product. This is a product description. It is a short description of the product. This is a product description. It is a short description of the product.',
+                      product.description ?? '',
                       trimLines: 2,
                       trimMode: TrimMode.Line,
                       trimCollapsedText: '...Read more',
