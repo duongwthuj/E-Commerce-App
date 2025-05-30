@@ -13,7 +13,7 @@ class AllProducts extends StatelessWidget {
     super.key,
     required this.title,
     this.query,
-    this.futureMethod
+    this.futureMethod,
   });
 
   final String? title;

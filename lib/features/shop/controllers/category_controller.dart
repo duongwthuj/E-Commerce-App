@@ -25,24 +25,37 @@ class CategoryController extends GetxController {
     try {
       // show loader while loading categories
       isLoading.value = true;
-      
+
       // Fetch categories from data source (firebase, api, etc   )
-      final categories = await _categoryRepository.getAllCategories(); 
+      final categories = await _categoryRepository.getAllCategories();
       // Update the state
-      allCategories.assignAll(categories); 
+      allCategories.assignAll(categories);
       // filter featured categories
-      featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId!.isEmpty).take(8).toList());
-    } catch(e){
+      featuredCategories.assignAll(allCategories
+          .where(
+              (category) => category.isFeatured && category.parentId!.isEmpty)
+          .take(8)
+          .toList());
+    } catch (e) {
       TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     } finally {
-      isLoading.value = false; 
-    } 
+      isLoading.value = false;
+    }
   }
 
-  Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
-  // Fetch limit(4) products against each subCategory.
-  final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
-  return products;
-}
+  Future<List<ProductModel>> getCategoryProducts(
+      {required String categoryId, int limit = 4}) async {
+    // Fetch limit(4) products against each subCategory.
+    final products = await ProductRepository.instance
+        .getProductsForCategory(categoryId: categoryId, limit: limit);
+    return products;
+  }
 
+  Future<List<CategoryModel>> getSubCategoryProducts(
+      {required String categoryId, int limit = 4}) async {
+    // Fetch limit(4) products against each subCategory.
+    final subCategories =
+        await _categoryRepository.getSubCategories(categoryId);
+    return subCategories;
+  }
 }

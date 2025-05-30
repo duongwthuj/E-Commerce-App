@@ -40,11 +40,11 @@ class THomeCategories extends StatelessWidget {
             itemBuilder: (_, index) {
               final category = categoryController.featuredCategories[index];
               return GestureDetector(
-                onTap: () => Get.to(() => const SubCategoriesScreen()),
+                onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
                 child: TVerticalImageText(
                   image: category.image,
                   title: category.name,
-                  onTap: () => Get.to(() => const SubCategoriesScreen()),
+                  onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
                 ),
               );
             }),

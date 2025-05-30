@@ -139,14 +139,17 @@ class ProductRepository extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> getFavoriteProducts(List<String> productIds) async {
+  Future<List<ProductModel>> getFavoriteProducts(
+      List<String> productIds) async {
     try {
       if (productIds.isEmpty) return [];
       final snapshot = await _db
           .collection('Products')
           .where(FieldPath.documentId, whereIn: productIds)
           .get();
-      return snapshot.docs.map((doc) => ProductModel.fromSnapshot(doc)).toList();
+      return snapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
     } catch (e) {
       throw 'Error fetching favorite products: $e';
     }

@@ -22,7 +22,6 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     email.text = localStorage.read('email') ?? '';
     password.text = localStorage.read('password') ?? '';
     super.onInit();
@@ -60,7 +59,7 @@ class LoginController extends GetxController {
       } 
 
       // login with email and password
-      final userCredential = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      // final userCredential = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       TFullScreenLoader.stopLoading();
 

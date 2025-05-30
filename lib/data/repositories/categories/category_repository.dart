@@ -6,7 +6,6 @@ import 'package:thuctapcoso/utlis/exceptions/format_exceptions.dart';
 import 'package:thuctapcoso/utlis/exceptions/platform_exceptions.dart';
 import 'package:thuctapcoso/features/shop/models/category_model.dart';
 
-
 class CategoryRepository extends GetxController {
   static CategoryRepository get to => Get.find();
 
@@ -14,11 +13,13 @@ class CategoryRepository extends GetxController {
 
   // Get all categories
   Future<List<CategoryModel>> getAllCategories() async {
-    try{
+    try {
       final snapshot = await _db.collection('Categories').get();
-      final list = snapshot.docs.map((document) => CategoryModel.fromSnapshot(document)).toList();
+      final list = snapshot.docs
+          .map((document) => CategoryModel.fromSnapshot(document))
+          .toList();
       return list;
-    }on FirebaseException catch (e) {
+    } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
@@ -27,10 +28,24 @@ class CategoryRepository extends GetxController {
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
-
   }
 
   // Get sub categories
+  Future<List<CategoryModel>> getSubCategories(String categoryId) async {
+    try {
+      final snapshot = await _db
+          .collection('Categories')
+          .where('parentId', isEqualTo: categoryId)
+          .get();
+      return snapshot.docs
+          .map((document) => CategoryModel.fromSnapshot(document))
+          .toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    }
 
-  //
+    //
+  }
 }
