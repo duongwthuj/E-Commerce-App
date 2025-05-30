@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/images/cached_network_image.dart';
 import 'package:thuctapcoso/features/shop/controllers/product/image_controller.dart';
+import 'package:thuctapcoso/features/shop/controllers/favorite_controller.dart';
 import 'package:thuctapcoso/features/shop/models/product_model.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -22,8 +23,9 @@ class TProductImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
-    // Initialize the controller
+    // Initialize the controllers
     final controller = Get.put(ImageController());
+    final favoriteController = Get.put(FavoriteController());
     final images = controller.getAllProductImages(product);
 
     return CurvedEdgeWidget(
@@ -81,12 +83,22 @@ class TProductImageSlider extends StatelessWidget {
 
               // appBar Icon
               TAppBar(showBackArrow: true, actions: [
-                TCircularIcon(
-                  icon: Icons.favorite,
-                  color: Colors.red,
-                  size: TSizes.iconSm * 1.5,
-                  backgroundColor: dark ? TColors.darkerGrey : TColors.light,
-                )
+                Obx(() {
+                  final isFavorite = favoriteController.isFavorite(product);
+                  return TCircularIcon(
+                    icon: isFavorite ? Icons.favorite : Icons.favorite_border,
+                    color: isFavorite ? Colors.red : Colors.grey,
+                    size: TSizes.iconSm * 1.5,
+                    backgroundColor: dark ? TColors.darkerGrey : TColors.light,
+                    onPressed: () {
+                      if (isFavorite) {
+                        favoriteController.removeFromFavorites(product);
+                      } else {
+                        favoriteController.addToFavorites(product);
+                      }
+                    },
+                  );
+                }),
               ])
             ])));
   }

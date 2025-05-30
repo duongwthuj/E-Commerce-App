@@ -17,31 +17,34 @@ class NavigationMenu extends StatelessWidget {
     final dark = THelperFunction.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: Obx(() => NavigationBar(
-        height: 80,
-        elevation: 0,
-        selectedIndex: controller.selectedIndex.value,
-        onDestinationSelected: (index) => controller.selectedIndex.value = index,
-        backgroundColor: dark ? TColors.black : TColors.white,
-        indicatorColor: dark ? TColors.textSecondary.withOpacity(0.1) : TColors.black.withOpacity(0.1),
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.shop),
-            label: 'Store',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.favorite),
-            label: 'Wishlist',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      )),
+            height: 80,
+            elevation: 0,
+            selectedIndex: controller.selectedIndex.value,
+            onDestinationSelected: (index) =>
+                controller.selectedIndex.value = index,
+            backgroundColor: dark ? TColors.black : TColors.white,
+            indicatorColor: dark
+                ? TColors.textSecondary.withOpacity(0.1)
+                : TColors.black.withOpacity(0.1),
+            destinations: [
+              NavigationDestination(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.shop),
+                label: 'Store',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.favorite),
+                label: 'Wishlist',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+          )),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }

@@ -106,4 +106,5 @@ class TTexts {
   static const String setImageQualityToHD = "Set image quality to HD";
   static const String logout = "LogOut";
   static const String viewAll = "View All";
+  static const String favourites = "Favourites";
 }
