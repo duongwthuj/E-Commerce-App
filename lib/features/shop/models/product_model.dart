@@ -57,7 +57,7 @@ class ProductModel {
         brand: BrandModel.empty(),
       );
 
-  toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'SKU': sku,
       'Title': title,
@@ -80,66 +80,127 @@ class ProductModel {
     };
   }
 
-  factory ProductModel.fromSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> document) {
+  static List<String> convertToStringList(dynamic value) {
+    if (value == null) return [];
+    if (value is List) {
+      return value
+          .where((e) => e != null)
+          .map((e) => e.toString())
+          .toList()
+          .cast<String>();
+    }
+    return [];
+  }
+
+  factory ProductModel.fromSnapshot(DocumentSnapshot document) {
     if (document.data() == null) {
+      print('Tài liệu ${document.id} không có dữ liệu');
       return ProductModel.empty();
     }
-    final data = document.data()!;
-    return ProductModel(
-      id: document.id,
-      sku: data['SKU'],
-      title: data['Title'] ?? '',
-      stock: data['Stock'] ?? 0,
-      isFeatured: data['IsFeatured'] ?? false,
-      price: double.parse((data['Price'] ?? 0.0).toString()),
-      salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
-      thumbnail: data['Thumbnail'] ?? '',
-      categoryId: data['CategoryId'] ?? '',
-      description: data['Description'] ?? '',
-      productType: data['ProductType'] ?? '',
-      brand: data['Brand'] != null
-          ? BrandModel.fromJson(data['Brand'])
-          : BrandModel.empty(),
-      images: data['Images'] != null ? List<String>.from(data['Images']) : [],
-      productAttributes: data['ProductAttributes'] != null
-          ? (data['ProductAttributes'] as List<dynamic>)
-              .map((e) => ProductAttributeModel.fromJson(e))
-              .toList()
-          : [],
-      productVariants: data['ProductVariants'] != null
-          ? (data['ProductVariants'] as List<dynamic>)
-              .map((e) => ProductVariationModel.fromJson(e))
-              .toList()
-          : [],
-    );
+    final data = document.data()! as Map<String, dynamic>;
+
+    try {
+      return ProductModel(
+        id: document.id,
+        title: data['Title']?.toString() ?? '',
+        description: data['Description']?.toString() ?? '',
+        thumbnail: data['Thumbnail']?.toString() ?? '',
+        brand: data['Brand'] != null
+            ? BrandModel.fromJson(data['Brand'] as Map<String, dynamic>)
+            : BrandModel.empty(),
+        price: (data['Price'] is num ? data['Price'].toDouble() : 0.0),
+        salePrice: (data['SalePrice'] is num ? data['SalePrice'].toDouble() : 0.0),
+        sku: data['SKU']?.toString() ?? '',
+        categoryId: data['CategoryId']?.toString() ?? '',
+        productType: data['ProductType']?.toString() ?? 'single',
+        stock: (data['Stock'] is num ? data['Stock'] : 0) as int,
+        isFeatured: data['IsFeatured'] as bool? ?? false,
+        images: convertToStringList(data['Images']),
+        productVariants: data['ProductVariants'] != null &&
+                data['ProductVariants'] is List
+            ? (data['ProductVariants'] as List)
+                .map((item) {
+                  try {
+                    return ProductVariationModel.fromJson(
+                        item as Map<String, dynamic>);
+                  } catch (e) {
+                    print('Lỗi xử lý ProductVariant trong tài liệu ${document.id}: $e');
+                    return null;
+                  }
+                })
+                .where((item) => item != null)
+                .cast<ProductVariationModel>()
+                .toList()
+            : [],
+        productAttributes: data['ProductAttributes'] != null &&
+                data['ProductAttributes'] is List
+            ? (data['ProductAttributes'] as List)
+                .map((item) {
+                  try {
+                    return ProductAttributeModel.fromJson(
+                        item as Map<String, dynamic>);
+                  } catch (e) {
+                    print('Lỗi xử lý ProductAttribute trong tài liệu ${document.id}: $e');
+                    return null;
+                  }
+                })
+                .where((item) => item != null)
+                .cast<ProductAttributeModel>()
+                .toList()
+            : [],
+      );
+    } catch (e) {
+      print('Lỗi xử lý tài liệu ${document.id}: $e');
+      print('Dữ liệu tài liệu: $data');
+      rethrow;
+    }
   }
 
   static ProductModel fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      id: json['Id'] ?? '',
-      stock: json['Stock'] ?? 0,
-      price: json['Price'] ?? 0.0,
-      title: json['Title'] ?? '',
-      thumbnail: json['Thumbnail'] ?? '',
-      sku: json['SKU'],
-      isFeatured: json['IsFeatured'] ?? false,
-      salePrice: json['SalePrice'] ?? 0.0,
-      categoryId: json['CategoryId'],
-      description: json['Description'],
-      productType: json['ProductType'] ?? '',
+      id: json['Id']?.toString() ?? '',
+      stock: (json['Stock'] is num ? json['Stock'] : 0) as int,
+      price: (json['Price'] is num ? json['Price'].toDouble() : 0.0),
+      title: json['Title']?.toString() ?? '',
+      thumbnail: json['Thumbnail']?.toString() ?? '',
+      sku: json['SKU']?.toString() ?? '',
+      isFeatured: json['IsFeatured'] as bool? ?? false,
+      salePrice: (json['SalePrice'] is num ? json['SalePrice'].toDouble() : 0.0),
+      categoryId: json['CategoryId']?.toString() ?? '',
+      description: json['Description']?.toString() ?? '',
+      productType: json['ProductType']?.toString() ?? '',
       brand: json['Brand'] != null
-          ? BrandModel.fromJson(json['Brand'])
+          ? BrandModel.fromJson(json['Brand'] as Map<String, dynamic>)
           : BrandModel.empty(),
-      images: json['Images'] != null ? List<String>.from(json['Images']) : [],
-      productAttributes: json['ProductAttributes'] != null
-          ? (json['ProductAttributes'] as List<dynamic>)
-              .map((e) => ProductAttributeModel.fromJson(e))
+      images: convertToStringList(json['Images']),
+      productAttributes: json['ProductAttributes'] != null &&
+              json['ProductAttributes'] is List
+          ? (json['ProductAttributes'] as List)
+              .map((e) {
+                try {
+                  return ProductAttributeModel.fromJson(e as Map<String, dynamic>);
+                } catch (e) {
+                  print('Lỗi xử lý ProductAttribute trong JSON: $e');
+                  return null;
+                }
+              })
+              .where((item) => item != null)
+              .cast<ProductAttributeModel>()
               .toList()
           : [],
-      productVariants: json['ProductVariants'] != null
-          ? (json['ProductVariants'] as List<dynamic>)
-              .map((e) => ProductVariationModel.fromJson(e))
+      productVariants: json['ProductVariants'] != null &&
+              json['ProductVariants'] is List
+          ? (json['ProductVariants'] as List)
+              .map((e) {
+                try {
+                  return ProductVariationModel.fromJson(e as Map<String, dynamic>);
+                } catch (e) {
+                  print('Lỗi xử lý ProductVariant trong JSON: $e');
+                  return null;
+                }
+              })
+              .where((item) => item != null)
+              .cast<ProductVariationModel>()
               .toList()
           : [],
     );

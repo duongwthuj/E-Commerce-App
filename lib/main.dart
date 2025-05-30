@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:thuctapcoso/data/dataTest/upload_dummy_banner.dart';
+import 'package:thuctapcoso/data/dataTest/upload_dummy_product.dart';
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/data/repositories/user/user_repository.dart';
 import 'package:thuctapcoso/features/personalization/controllers/user_controllers.dart';
@@ -35,6 +36,7 @@ Future<void> main() async {
   // Upload test categories to Firestore
   // await uploadCategoriesToFirestore();
   // await uploadBannersToFirestore();
+  // await UploadProducts.uploadProducts();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then(

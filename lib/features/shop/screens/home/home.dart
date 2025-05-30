@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Get.put(BannerController());
     // Auto-scroll the page view
     Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
+      if (mounted && _pageController.hasClients) {
         _pageController.nextPage(
           duration: const Duration(milliseconds: 800),
           curve: Curves.fastOutSlowIn,
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: controller.featuredProducts.length,
                       itemBuilder: (_, index) => TProductCardVertical(
                             product: controller.featuredProducts[index],
-                      ));
+                          ));
                 })
               ]),
             ),

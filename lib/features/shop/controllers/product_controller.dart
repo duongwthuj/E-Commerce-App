@@ -19,11 +19,47 @@ class ProductController extends GetxController {
 
   void fetchFeaturedProducts() async {
     try {
+      print('Starting to fetch featured products...');
       isLoading.value = true;
+
+      // Lấy sản phẩm từ repository
       final products = await productRepository.getFeaturedProducts();
-      featuredProducts.assignAll(products);
+      print('Received ${products.length} products from repository');
+
+      // Kiểm tra và xử lý từng sản phẩm
+      final validProducts = products.where((product) {
+        try {
+          // Kiểm tra các trường bắt buộc
+          if (product.title.isEmpty) {
+            print('Product ${product.id} has empty title');
+            return false;
+          }
+          if (product.thumbnail.isEmpty) {
+            print('Product ${product.id} has empty thumbnail');
+            return false;
+          }
+          if (product.price <= 0) {
+            print('Product ${product.id} has invalid price: ${product.price}');
+            return false;
+          }
+          return true;
+        } catch (e) {
+          print('Error validating product ${product.id}: $e');
+          return false;
+        }
+      }).toList();
+
+      print('Found ${validProducts.length} valid products');
+
+      // Cập nhật danh sách sản phẩm
+      featuredProducts.assignAll(validProducts);
+      print(
+          'Updated featuredProducts list with ${featuredProducts.length} items');
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      print('Error in fetchFeaturedProducts: $e');
+      TLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Failed to load products. Please try again.');
     } finally {
       isLoading.value = false;
     }
