@@ -14,6 +14,7 @@ class BrandProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = BrandController.instance;
     return Scaffold(
       appBar: TAppBar(title: Text(brand.name), showBackArrow: true),
       body: SingleChildScrollView(
@@ -27,7 +28,7 @@ class BrandProducts extends StatelessWidget {
 
               /// Sortable Products
               FutureBuilder<List<ProductModel>>(
-                  future: BrandController.instance.getBrandProducts(brand.id),
+                  future: controller.getBrandProducts(brandId: brand.id, limit: 10),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(child: CircularProgressIndicator());

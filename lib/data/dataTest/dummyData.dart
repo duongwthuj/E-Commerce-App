@@ -16,7 +16,7 @@ class TDummyData {
         name: 'Electronics',
         isFeatured: true),
     CategoryModel(
-        id: '3', image: TImages.clothIcon, name: 'Clothes', isFeatured: true),
+        id: '3', image: "https://res.cloudinary.com/drs2qlys3/image/upload/v1748549512/vvdwemmbz6ltzk7xa94n.png", name: 'Clothes', isFeatured: true),
     CategoryModel(
         id: '4', image: TImages.animalIcon, name: 'Animals', isFeatured: true),
     CategoryModel(

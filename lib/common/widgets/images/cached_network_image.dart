@@ -9,8 +9,8 @@ class CacheNetworkImage extends StatelessWidget {
     this.height,
     this.fit = BoxFit.cover,
     this.errorWidget,
-    this.placeholder,
-  });
+    this.placeholder, this.progressIndicatorBuilder,
+    });
 
   final String image;
   final double? width;
@@ -18,6 +18,7 @@ class CacheNetworkImage extends StatelessWidget {
   final BoxFit fit;
   final Widget? errorWidget;
   final Widget? placeholder;
+  final Widget? progressIndicatorBuilder;
 
   @override
   Widget build(BuildContext context) {
