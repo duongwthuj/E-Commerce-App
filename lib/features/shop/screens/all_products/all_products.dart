@@ -41,15 +41,15 @@ class AllProducts extends StatelessWidget {
                 return const TVerticalProductShimmer();
               }
               if (snapshot.hasError) {
-                print('Error: ${snapshot.error}'); // Log lỗi
+                // print('Error: ${snapshot.error}'); // Log lỗi
                 return Center(child: Text('Error: ${snapshot.error}'));
               }
               if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                print('No products found'); // Log trạng thái rỗng
+                // print('No products found'); // Log trạng thái rỗng
                 return const Center(child: Text('No products found'));
               }
               final products = snapshot.data!;
-              print('Loaded ${products.length} products'); // Log số sản phẩm
+              // print('Loaded ${products.length} products'); // Log số sản phẩm
               return TSoretableProducts(products: products);
             },
           ),
