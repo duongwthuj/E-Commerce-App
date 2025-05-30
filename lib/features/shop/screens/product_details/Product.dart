@@ -10,7 +10,6 @@ import 'package:thuctapcoso/features/shop/screens/product_details/widget/product
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/product_meta_data.dart';
 import 'package:thuctapcoso/features/shop/screens/product_details/widget/rating_share_widget.dart';
 import 'package:thuctapcoso/features/shop/screens/store/product_reviewers/product_reviewers.dart';
-import 'package:thuctapcoso/utlis/constants/enums.dart';
 import '../../../../utlis/constants/sizes.dart';
 
 class ProductDetailScreen extends StatelessWidget {

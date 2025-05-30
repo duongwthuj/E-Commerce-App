@@ -13,39 +13,52 @@ class ProductRepository extends GetxController {
   /// GET LIMITED FEATURED PRODUCTS
   Future<List<ProductModel>> getFeaturedProducts() async {
     try {
-      print('Fetching featured products from Firestore...');
       final snapshot = await _db
           .collection('Products')
           .where('IsFeatured', isEqualTo: true)
           .limit(4)
           .get();
-      print('Found ${snapshot.docs.length} featured products');
 
-      final products = <ProductModel>[];
-
-      for (var doc in snapshot.docs) {
-        try {
-          print('Processing document: ${doc.id}');
-          final product = ProductModel.fromSnapshot(doc);
-          products.add(product);
-          print('Successfully processed product: ${product.title}');
-        } catch (e) {
-          print('Error processing document ${doc.id}: $e');
-          // Bỏ qua sản phẩm lỗi và tiếp tục với sản phẩm tiếp theo
-          continue;
-        }
-      }
-
-      print('Successfully processed ${products.length} products');
-      return products;
+      return snapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
     } on FirebaseException catch (e) {
-      print('Firebase error: ${e.message}');
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
-      print('Platform error: ${e.message}');
       throw TPlatformException(e.code).message;
     } catch (e) {
-      print('Unknown error: $e');
+      throw e.toString();
+    }
+  }
+
+  /// GET ALL PRODUCTS
+  Future<List<ProductModel>> getAllProducts() async {
+    try {
+      final snapshot = await _db.collection('Products').get();
+      return snapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  /// GET PRODUCTS BY QUERY
+  Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
+    try {
+      final snapshot = await query.get();
+      return snapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
       throw e.toString();
     }
   }

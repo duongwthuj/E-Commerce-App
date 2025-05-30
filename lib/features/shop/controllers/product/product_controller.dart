@@ -19,49 +19,63 @@ class ProductController extends GetxController {
 
   void fetchFeaturedProducts() async {
     try {
-      print('Starting to fetch featured products...');
+      // print('Starting to fetch featured products...');
       isLoading.value = true;
 
       // Lấy sản phẩm từ repository
       final products = await productRepository.getFeaturedProducts();
-      print('Received ${products.length} products from repository');
+      // print('Received ${products.length} products from repository');
 
       // Kiểm tra và xử lý từng sản phẩm
       final validProducts = products.where((product) {
         try {
           // Kiểm tra các trường bắt buộc
           if (product.title.isEmpty) {
-            print('Product ${product.id} has empty title');
+            // print('Product ${product.id} has empty title');
             return false;
           }
           if (product.thumbnail.isEmpty) {
-            print('Product ${product.id} has empty thumbnail');
+            // print('Product ${product.id} has empty thumbnail');
             return false;
           }
           if (product.price <= 0) {
-            print('Product ${product.id} has invalid price: ${product.price}');
+            // print('Product ${product.id} has invalid price: ${product.price}');
             return false;
           }
           return true;
         } catch (e) {
-          print('Error validating product ${product.id}: $e');
+          // print('Error validating product ${product.id}: $e');
           return false;
         }
       }).toList();
 
-      print('Found ${validProducts.length} valid products');
+      // print('Found ${validProducts.length} valid products');
 
       // Cập nhật danh sách sản phẩm
       featuredProducts.assignAll(validProducts);
-      print(
-          'Updated featuredProducts list with ${featuredProducts.length} items');
+      // print(
+      //     'Updated featuredProducts list with ${featuredProducts.length} items');
     } catch (e) {
-      print('Error in fetchFeaturedProducts: $e');
+      // print('Error in fetchFeaturedProducts: $e');
       TLoaders.errorSnackBar(
           title: 'Error',
           message: 'Failed to load products. Please try again.');
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+    try {
+      // Lấy sản phẩm từ repository
+      final products = await productRepository.getFeaturedProducts();
+      return products;
+    } catch (e) {
+      // print('Error in fetchFeaturedProducts: $e');
+      TLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Failed to load products. Please try again.');
+      return [];
     }
   }
 

@@ -21,10 +21,10 @@ class TProductCardVertical extends StatelessWidget {
   final ProductModel product;
   @override
   Widget build(BuildContext context) {
-
     final dark = THelperFunction.isDarkMode(context);
     final controller = ProductController.instance;
-    final salePercentage = controller.calculateDiscountPercentage(product.price, product.salePrice);
+    final salePercentage = controller.calculateDiscountPercentage(
+        product.price, product.salePrice);
 
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(product: product)),
@@ -83,7 +83,7 @@ class TProductCardVertical extends StatelessWidget {
                       )),
                 ],
               ),
-            ),  
+            ),
 
             // Details
             Padding(
@@ -108,25 +108,47 @@ class TProductCardVertical extends StatelessWidget {
               children: [
                 Flexible(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (product.productType == ProductType.single.toString() && product.salePrice > 0)
-                      Padding(
-                        padding: EdgeInsets.only(left: TSizes.xs),
-                        child: Text(
-                          product.price.toString(),
-                          style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
-                        )
+                      if (product.salePrice > 0) ...[
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.xs),
+                          child: Text(
+                            "\$${product.price.toStringAsFixed(2)}",
+                            style:
+                                Theme.of(context).textTheme.labelMedium!.apply(
+                                      decoration: TextDecoration.lineThrough,
+                                      color: TColors.grey,
+                                    ),
+                          ),
+                        ),
+                        const SizedBox(height: TSizes.xs),
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.xs),
+                          child: TProductPriceText(
+                            price: product.salePrice.toStringAsFixed(2),
+                            isLarge: true,
+                          ),
+                        ),
+                      ] else
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.xs),
+                          child: TProductPriceText(
+                            price: product.price.toStringAsFixed(2),
+                            isLarge: true,
+                          ),
                         ),
                     ],
                   ),
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: TColors.dark,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(TSizes.sm),
-                        bottomLeft: Radius.circular(TSizes.productImageRadius),
-                      )),
+                    color: TColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TSizes.sm),
+                      bottomLeft: Radius.circular(TSizes.productImageRadius),
+                    ),
+                  ),
                   child: SizedBox(
                     width: TSizes.iconLg * 1.2,
                     height: TSizes.iconLg * 1.2,

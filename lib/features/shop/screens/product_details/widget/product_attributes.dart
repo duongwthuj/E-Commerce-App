@@ -21,47 +21,62 @@ class TProductAttributes extends StatelessWidget {
     final dark = THelperFunction.isDarkMode(context);
     final controller = Get.put(VariationController());
 
+    // Initialize variation when widget is built
     controller.initializeVariation(product);
 
     return Obx(
       () => Column(
         children: [
-          if (product.productVariants != null && product.productVariants!.isNotEmpty)
+          // Selected Attributes Pricing and description
+          if (product.productVariants != null &&
+              product.productVariants!.isNotEmpty)
             TRoundedContainer(
               backgroundColor: dark ? TColors.darkerGrey : TColors.grey,
               child: Column(
                 children: [
+                  // title, price, and stock status
                   Row(
                     children: [
-                      const TSectionsHeading(title: 'Variation', showActionButton: false),
-                      const SizedBox(width: TSizes.spaceBtwItems),
+                      const TSectionsHeading(
+                          title: 'Variation', showActionButton: false),
+                      SizedBox(width: TSizes.spaceBtwItems),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              const TProductTittleText(title: 'Price', smallSize: true),
+                              const TProductTittleText(
+                                  title: 'Price', smallSize: true),
                               const SizedBox(width: TSizes.spaceBtwItems),
-                              if (controller.selectedVariation.value.salePrice > 0)
+                              // Actual Price
+                              if (controller.selectedVariation.value.salePrice >
+                                  0)
                                 Text(
-                                  "\$${controller.selectedVariation.value.price}",
-                                  style: Theme.of(context).textTheme.titleSmall!.apply(
+                                  "\$${controller.getVaritationPrice()}",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .apply(
                                         decoration: TextDecoration.lineThrough,
-                                        color: TColors.darkGrey, // Đổi màu giá gốc
+                                        color: TColors.grey,
                                       ),
                                 ),
-                              if (controller.selectedVariation.value.salePrice > 0)
+                              if (controller.selectedVariation.value.salePrice >
+                                  0)
                                 const SizedBox(width: TSizes.spaceBtwItems),
-                              TProductPriceText(price: controller.getVaritationPrice()),
+                              // Sale Price
+                              TProductPriceText(
+                                price: controller.getVaritationPrice(),
+                              ),
                             ],
                           ),
+                          // Stock
                           Row(
                             children: [
-                              const TProductTittleText(title: 'Stock: ', smallSize: true),
+                              const TProductTittleText(
+                                  title: 'Stock: ', smallSize: true),
                               Text(
-                                controller.variationStockStatus.value.isEmpty
-                                    ? 'N/A'
-                                    : controller.variationStockStatus.value,
+                                controller.variationStockStatus.value,
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                             ],
@@ -70,11 +85,8 @@ class TProductAttributes extends StatelessWidget {
                       ),
                     ],
                   ),
-                  // Hiển thị mô tả của biến thể
                   TProductTittleText(
-                    title: controller.selectedVariation.value.description?.isNotEmpty == true
-                        ? controller.selectedVariation.value.description!
-                        : product.description ?? 'Không có mô tả',
+                    title: product.description ?? '',
                     smallSize: true,
                     maxLines: 4,
                   ),
@@ -83,38 +95,48 @@ class TProductAttributes extends StatelessWidget {
             ),
           const SizedBox(height: TSizes.spaceBtwItems),
 
-          if (product.productAttributes != null && product.productAttributes!.isNotEmpty)
-            ...product.productAttributes!.map((attribute) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TSectionsHeading(title: attribute.name ?? ''),
-                    const SizedBox(height: TSizes.spaceBtwItems / 2),
-                    Obx(
-                      () => Wrap(
-                        spacing: 8,
-                        children: attribute.values!.map((attributeValue) {
-                          final isSelected = controller.selectedAttributes[attribute.name] == attributeValue;
-                          final available = controller
-                              .getAttributesAvailabilityInVariation(
-                                  product.productVariants!, attribute.name!)
-                              .contains(attributeValue);
-                          return TChoiceChip(
-                            text: attributeValue,
-                            selected: isSelected,
-                            onSelected: available
-                                ? (selected) {
-                                    if (selected) {
-                                      controller.onAttributeSelected(
-                                          product, attribute.name!, attributeValue);
-                                    }
-                                  }
-                                : null,
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ],
-                )),
+          // Attributes
+          if (product.productAttributes != null &&
+              product.productAttributes!.isNotEmpty)
+            ...product.productAttributes!
+                .map((attribute) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TSectionsHeading(title: attribute.name ?? ''),
+                        const SizedBox(height: TSizes.spaceBtwItems / 2),
+                        Obx(
+                          () => Wrap(
+                            spacing: 8,
+                            children: attribute.values!.map((attributeValue) {
+                              final isSelected = controller
+                                      .selectedAttributes[attribute.name] ==
+                                  attributeValue;
+                              final available = controller
+                                      .getAttributesAvailabilityInVariation(
+                                          product.productVariants!,
+                                          attribute.name!)
+                                      ?.contains(attributeValue) ??
+                                  false;
+                              return TChoiceChip(
+                                text: attributeValue,
+                                selected: isSelected,
+                                onSelected: available
+                                    ? (selected) {
+                                        if (selected && available) {
+                                          controller.onAttributeSelected(
+                                              product,
+                                              attribute.name!,
+                                              attributeValue);
+                                        }
+                                      }
+                                    : null,
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ))
+                .toList(),
         ],
       ),
     );
