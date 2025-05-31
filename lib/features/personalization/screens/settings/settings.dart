@@ -5,6 +5,7 @@ import 'package:thuctapcoso/common/widgets/list_tiles/settings_menu_title.dart';
 import 'package:thuctapcoso/common/widgets/texts/sectionsHeading.dart';
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
 import 'package:thuctapcoso/features/personalization/screens/address/address.dart';
+import 'package:thuctapcoso/features/shop/screens/cart/cart.dart';
 import 'package:thuctapcoso/features/shop/screens/order/order.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_hearder_container.dart';
 import '../../../../common/widgets/list_tiles/user_profile_title.dart';
@@ -55,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                   icon: Icons.shopping_cart_outlined,
                   title: TTexts.myCart,
                   subtitle: TTexts.addRemoveProductsAndMoveToCheckout,
-                  onTap: () {},
+                  onTap: () => Get.to(() => const CartScreen()),
                 ),
                 TSettingsMenuTile(
                     icon: Icons.shopping_bag_outlined,

@@ -162,7 +162,19 @@ class CartController extends GetxController {
       final item = cartItems[index];
       // Check if new quantity would exceed stock
       if (quantity <= item.stock) {
-        cartItems[index].quantity = quantity;
+        // Create a new list to trigger UI update
+        final updatedItems = List<CartItemModel>.from(cartItems);
+        updatedItems[index] = CartItemModel(
+          productId: item.productId,
+          title: item.title,
+          price: item.price,
+          quantity: quantity,
+          image: item.image,
+          selectedVariation: item.selectedVariation,
+          stock: item.stock,
+          brandName: item.brandName,
+        );
+        cartItems.assignAll(updatedItems);
         _saveCartItems();
         _updateCartTotals();
       } else {

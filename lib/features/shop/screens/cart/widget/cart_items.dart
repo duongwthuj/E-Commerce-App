@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:thuctapcoso/common/widgets/products/cart/add_remove_button.dart';
-import 'package:thuctapcoso/common/widgets/products/cart/cart_item.dart';
-import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
 import 'package:thuctapcoso/features/shop/controllers/cart_controller.dart';
 import 'package:thuctapcoso/features/shop/models/cart_item_model.dart';
 import 'package:thuctapcoso/features/shop/screens/cart/widget/t_product_quantity_with_add_remove_button.dart';
