@@ -8,9 +8,7 @@ import 'package:thuctapcoso/features/shop/models/category_model.dart';
 import 'package:thuctapcoso/features/shop/models/product_model.dart';
 import 'package:thuctapcoso/features/shop/screens/all_products/all_products.dart';
 import 'package:thuctapcoso/features/shop/screens/store/category/category_brands.dart';
-import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../common/widgets/texts/sectionsHeading.dart';
-import '../../../../../utlis/constants/image_strings.dart';
 import '../../../../../utlis/constants/sizes.dart';
 
 class TCategoryTab extends StatelessWidget {
