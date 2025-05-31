@@ -75,24 +75,28 @@ class TProductCardVertical extends StatelessWidget {
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: Obx(() {
-                      final isFavorite = favoriteController.isFavorite(product);
-                      return TCircularIcon(
-                        icon:
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
-                        width: TSizes.iconSm,
-                        color: isFavorite ? Colors.red : Colors.grey,
-                        size: TSizes.iconSm,
-                        backgroundColor: Colors.transparent,
-                        onPressed: () {
-                          if (isFavorite) {
-                            favoriteController.removeFromFavorites(product);
-                          } else {
-                            favoriteController.addToFavorites(product);
-                          }
-                        },
-                      );
-                    }),
+                    child: GestureDetector(
+                      onTap: () {
+                        if (favoriteController.isFavorite(product)) {
+                          favoriteController.removeFromFavorites(product);
+                        } else {
+                          favoriteController.addToFavorites(product);
+                        }
+                      },
+                      child: Obx(() {
+                        final isFavorite =
+                            favoriteController.isFavorite(product);
+                        return TCircularIcon(
+                          icon: isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          width: TSizes.iconSm,
+                          color: isFavorite ? Colors.red : Colors.grey,
+                          size: TSizes.iconSm,
+                          backgroundColor: Colors.transparent,
+                        );
+                      }),
+                    ),
                   ),
                 ],
               ),
@@ -116,44 +120,39 @@ class TProductCardVertical extends StatelessWidget {
 
             const Spacer(),
 
+            // Price Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
+                // Price
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (product.salePrice > 0) ...[
+                      if (product.productType == 'Sale' &&
+                          product.salePrice > 0)
                         Padding(
-                          padding: const EdgeInsets.only(left: TSizes.xs),
+                          padding: const EdgeInsets.only(left: 5),
                           child: Text(
-                            "\$${product.price.toStringAsFixed(2)}",
-                            style:
-                                Theme.of(context).textTheme.labelMedium!.apply(
-                                      decoration: TextDecoration.lineThrough,
-                                      color: TColors.grey,
-                                    ),
+                            '\$${product.price}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .apply(decoration: TextDecoration.lineThrough),
                           ),
                         ),
-                        const SizedBox(height: TSizes.xs),
-                        Padding(
-                          padding: const EdgeInsets.only(left: TSizes.xs),
-                          child: TProductPriceText(
-                            price: product.salePrice.toStringAsFixed(2),
-                            isLarge: true,
-                          ),
-                        ),
-                      ] else
-                        Padding(
-                          padding: const EdgeInsets.only(left: TSizes.xs),
-                          child: TProductPriceText(
-                            price: product.price.toStringAsFixed(2),
-                            isLarge: true,
-                          ),
-                        ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: TProductPriceText(
+                            price: product.productType == 'Sale'
+                                ? product.salePrice.toString()
+                                : product.price.toString()),
+                      ),
                     ],
                   ),
                 ),
+
+                // Add to Cart Button
                 Container(
                   decoration: BoxDecoration(
                     color: TColors.dark,
