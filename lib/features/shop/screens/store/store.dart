@@ -23,7 +23,8 @@ class Store extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brandController = Get.put(BrandController());
-    final categories = CategoryController.instance.featuredCategories;
+    final categoryController = Get.put(CategoryController());
+    final categories = categoryController.featuredCategories;
     return DefaultTabController(
       length: categories.length,
       child: Scaffold(

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thuctapcoso/common/widgets/layouts/grid_layout.dart';
@@ -74,10 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       // Heading
                       TSectionsHeading(
                           title: 'Popular Products',
-                          onPressed: () => Get.to(() => AllProducts(
+                          onPressed: () => Get.to(() => const AllProducts(
                             title: 'Popular Products', 
-                            query: FirebaseFirestore.instance.collection('products').where('isFeatured', isEqualTo: true).limit(6),
-                            futureMethod: controller.fetchAllFeaturedProducts(),
+
                             )
                             ),
                           showActionButton: false,

@@ -3,7 +3,9 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:thuctapcoso/data/dataTest/upload_dummy_brand_categories.dart';
 import 'package:thuctapcoso/data/dataTest/upload_dummy_brands.dart';
+import 'package:thuctapcoso/data/dataTest/upload_dummy_product_categories.dart';
 // import 'package:thuctapcoso/data/dataTest/upload_dummy_banner.dart';
 
 import 'package:thuctapcoso/data/repositories/anthentications/authentication_repository.dart';
@@ -39,6 +41,8 @@ Future<void> main() async {
   // await uploadBannersToFirestore();
   // await UploadProducts.uploadProducts();
   // await UploadDummyBrands.uploadBrands();
+  // await UploadDummyBrandCategories.uploadBrandCategories();
+  // await UploadDummyProductCategories.uploadProductCategories();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then(

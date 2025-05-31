@@ -16,7 +16,11 @@ class TDummyData {
         name: 'Electronics',
         isFeatured: true),
     CategoryModel(
+<<<<<<< HEAD
         id: '3', image: 'https://res.cloudinary.com/drs2qlys3/image/upload/v1748656157/c6vpf7lqkgxkq96drisg.png'.clothIcon, name: 'Clothes', isFeatured: true),
+=======
+        id: '3', image: "https://res.cloudinary.com/drs2qlys3/image/upload/v1748549512/vvdwemmbz6ltzk7xa94n.png", name: 'Clothes', isFeatured: true),
+>>>>>>> fc538d54e72a55278c1ef964c70d382e7ade5f91
     CategoryModel(
         id: '4', image: 'https://res.cloudinary.com/drs2qlys3/image/upload/v1748626649/ddagy2wwhhlfdgmmnxzz.png'.animalIcon, name: 'Animals', isFeatured: true),
     CategoryModel(

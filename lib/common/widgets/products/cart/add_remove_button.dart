@@ -7,10 +7,14 @@ import 'package:thuctapcoso/utlis/helpers/helper_functions.dart';
 class TProductQuantityWithADdRemoveButton extends StatelessWidget {
   const TProductQuantityWithADdRemoveButton({
     super.key,
-
+    required this.quantity,
+    required this.add,
+    required this.remove,
   });
 
-
+  final int quantity;
+  final VoidCallback add;
+  final VoidCallback remove;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +28,11 @@ class TProductQuantityWithADdRemoveButton extends StatelessWidget {
           height: 32,
           size: TSizes.md,
           color: dark ? TColors.white : TColors.black,
-          backgroundColor:
-              dark ? TColors.darkGrey : TColors.light,
+          backgroundColor: dark ? TColors.darkGrey : TColors.light,
+          onPressed: remove,
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
-        Text('1',
+        Text(quantity.toString(),
             style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(width: TSizes.spaceBtwItems),
         TCircularIcon(
@@ -37,7 +41,8 @@ class TProductQuantityWithADdRemoveButton extends StatelessWidget {
           height: 32,
           size: TSizes.md,
           color: TColors.white,
-          backgroundColor: TColors.primary
+          backgroundColor: TColors.primary,
+          onPressed: add,
         ),
       ],
     );

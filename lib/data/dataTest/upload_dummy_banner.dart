@@ -10,5 +10,5 @@ Future<void> uploadBannersToFirestore() async {
       'TargetScreen': banner.targetScreen,
     });
   }
-  print('Banner upload completed!');
+  // print('Banner upload completed!');
 }

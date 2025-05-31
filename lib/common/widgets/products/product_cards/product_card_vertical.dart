@@ -4,8 +4,8 @@ import 'package:thuctapcoso/common/styles/shadows..dart';
 import 'package:thuctapcoso/common/widgets/custom_shapes/containers/round_container.dart';
 import 'package:thuctapcoso/common/widgets/products/product_cards/prodcut_price_text.dart';
 import 'package:thuctapcoso/features/shop/controllers/product/product_controller.dart';
+import 'package:thuctapcoso/features/shop/controllers/favorite_controller.dart';
 import 'package:thuctapcoso/features/shop/models/product_model.dart';
-import 'package:thuctapcoso/utlis/constants/enums.dart';
 import 'package:thuctapcoso/utlis/helpers/helpFunction.dart';
 import '../../../../features/shop/screens/product_details/Product.dart';
 import '../../../../utlis/constants/colors.dart';
@@ -23,6 +23,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
     final controller = ProductController.instance;
+    final favoriteController = Get.put(FavoriteController());
     final salePercentage = controller.calculateDiscountPercentage(
         product.price, product.salePrice);
 
@@ -71,16 +72,28 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   // favorite iconbutton
-                  const Positioned(
-                      top: 0,
-                      right: 0,
-                      child: TCircularIcon(
-                        icon: Icons.favorite,
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Obx(() {
+                      final isFavorite = favoriteController.isFavorite(product);
+                      return TCircularIcon(
+                        icon:
+                            isFavorite ? Icons.favorite : Icons.favorite_border,
                         width: TSizes.iconSm,
-                        color: Colors.red,
+                        color: isFavorite ? Colors.red : Colors.grey,
                         size: TSizes.iconSm,
                         backgroundColor: Colors.transparent,
-                      )),
+                        onPressed: () {
+                          if (isFavorite) {
+                            favoriteController.removeFromFavorites(product);
+                          } else {
+                            favoriteController.addToFavorites(product);
+                          }
+                        },
+                      );
+                    }),
+                  ),
                 ],
               ),
             ),

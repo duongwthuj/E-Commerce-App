@@ -94,7 +94,7 @@ class ProductModel {
 
   factory ProductModel.fromSnapshot(DocumentSnapshot document) {
     if (document.data() == null) {
-      print('Tài liệu ${document.id} không có dữ liệu');
+      // print('Tài liệu ${document.id} không có dữ liệu');
       return ProductModel.empty();
     }
     final data = document.data()! as Map<String, dynamic>;
@@ -125,8 +125,8 @@ class ProductModel {
                         return ProductVariationModel.fromJson(
                             item as Map<String, dynamic>);
                       } catch (e) {
-                        print(
-                            'Lỗi xử lý ProductVariant trong tài liệu ${document.id}: $e');
+                        // print(
+                        //     'Lỗi xử lý ProductVariant trong tài liệu ${document.id}: $e');
                         return null;
                       }
                     })
@@ -142,8 +142,8 @@ class ProductModel {
                     return ProductAttributeModel.fromJson(
                         item as Map<String, dynamic>);
                   } catch (e) {
-                    print(
-                        'Lỗi xử lý ProductAttribute trong tài liệu ${document.id}: $e');
+                    // print(
+                    //     'Lỗi xử lý ProductAttribute trong tài liệu ${document.id}: $e');
                     return null;
                   }
                 })
@@ -153,8 +153,8 @@ class ProductModel {
             : [],
       );
     } catch (e) {
-      print('Lỗi xử lý tài liệu ${document.id}: $e');
-      print('Dữ liệu tài liệu: $data');
+      // print('Lỗi xử lý tài liệu ${document.id}: $e');
+      // print('Dữ liệu tài liệu: $data');
       rethrow;
     }
   }
@@ -185,7 +185,7 @@ class ProductModel {
                       return ProductAttributeModel.fromJson(
                           e as Map<String, dynamic>);
                     } catch (e) {
-                      print('Lỗi xử lý ProductAttribute trong JSON: $e');
+                      // print('Lỗi xử lý ProductAttribute trong JSON: $e');
                       return null;
                     }
                   })
@@ -201,7 +201,7 @@ class ProductModel {
                       return ProductVariationModel.fromJson(
                           e as Map<String, dynamic>);
                     } catch (e) {
-                      print('Lỗi xử lý ProductVariant trong JSON: $e');
+                      // print('Lỗi xử lý ProductVariant trong JSON: $e');
                       return null;
                     }
                   })
@@ -212,24 +212,29 @@ class ProductModel {
     );
   }
 
-  factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) {
-  final data = document.data() as Map<String, dynamic>;
-  return ProductModel(
-    id: document.id,
-    sku: data['SKU'] ?? '',
-    title: data['Title'] ?? '',
-    stock: data['Stock'] ?? 0,
-    isFeatured: data['IsFeatured'] ?? false,
-    price: double.parse((data['Price'] ?? 0.0).toString()),
-    salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
-    thumbnail: data['Thumbnail'] ?? '',
-    categoryId: data['CategoryId'] ?? '',
-    description: data['Description'] ?? '',
-    productType: data['ProductType'] ?? '',
-    brand: BrandModel.fromJson(data['Brand']),
-    images: data['Images'] != null ? List<String>.from(data['Images']) : [],
-    productAttributes: (data['ProductAttributes'] as List<dynamic>).map((e) => ProductAttributeModel.fromJson(e)).toList(),
-    productVariants: (data['ProductVariants'] as List<dynamic>).map((e) => ProductVariationModel.fromJson(e)).toList(),
-  ); // ProductModel
-}
+  factory ProductModel.fromQuerySnapshot(
+      QueryDocumentSnapshot<Object?> document) {
+    final data = document.data() as Map<String, dynamic>;
+    return ProductModel(
+      id: document.id,
+      sku: data['SKU'] ?? '',
+      title: data['Title'] ?? '',
+      stock: data['Stock'] ?? 0,
+      isFeatured: data['IsFeatured'] ?? false,
+      price: double.parse((data['Price'] ?? 0.0).toString()),
+      salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
+      thumbnail: data['Thumbnail'] ?? '',
+      categoryId: data['CategoryId'] ?? '',
+      description: data['Description'] ?? '',
+      productType: data['ProductType'] ?? '',
+      brand: BrandModel.fromJson(data['Brand']),
+      images: data['Images'] != null ? List<String>.from(data['Images']) : [],
+      productAttributes: (data['ProductAttributes'] as List<dynamic>)
+          .map((e) => ProductAttributeModel.fromJson(e))
+          .toList(),
+      productVariants: (data['ProductVariants'] as List<dynamic>)
+          .map((e) => ProductVariationModel.fromJson(e))
+          .toList(),
+    ); // ProductModel
+  }
 }

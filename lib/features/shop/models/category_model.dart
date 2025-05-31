@@ -24,11 +24,10 @@ class CategoryModel {
       );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
+        'Name': name,
         'image': image,
-        'parentId': parentId,
-        'isFeatured': isFeatured,
+        'ParentId': parentId,
+        'IsFeatured': isFeatured,
       };
 
   factory CategoryModel.fromSnapshot(
