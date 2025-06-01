@@ -9,7 +9,7 @@ class TDummyBanner {
       active: true,
       targetScreen: '/search',
     ),
-    // BannerModel(
+    // BannerModel(f
     //   imageUrl:
     //       'https://res.cloudinary.com/drs2qlys3/image/upload/v1748549512/rjw8bmndxkf6upjsurpv.png',
     //   active: true,
